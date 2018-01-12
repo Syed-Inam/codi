@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>MySql.Data</id>
+    <version>6.10.4</version>
+    <title>MySql.Data</title>
+    <authors>Oracle</authors>
+    <owners>Oracle</owners>
+    <licenseUrl>http://www.gnu.org/licenses/old-licenses/gpl-2.0.html</licenseUrl>
+    <projectUrl>http://dev.mysql.com/downloads/</projectUrl>
+    <iconUrl>http://www.mysql.com/common/logos/logo-mysql-170x115.png</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>MySql.Data.MySqlClient .Net Core Class Library</description>
+    <summary />
+    <releaseNotes>Review ReleaseNotes.txt for details.</releaseNotes>
+    <copyright>Copyright © 2016, 2017, Oracle and/or its affiliates. All rights reserved.</copyright>
+    <tags>MySql .NET Connector Connector/NET netcore .Net Core Conector/Net coreclr C/NET C/Net</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.5.2" />
+      <group targetFramework="Unsupported0.0">
+        <dependency id="NETStandard.Library" version="1.6.1" />
+        <dependency id="Microsoft.Extensions.Configuration.Json" version="1.1.2" />
+        <dependency id="System.Collections.NonGeneric" version="4.3.0" />
+        <dependency id="System.ComponentModel" version="4.3.0" />
+        <dependency id="System.ComponentModel.Annotations" version="4.3.0" />
+        <dependency id="System.ComponentModel.Primitives" version="4.3.0" />
+        <dependency id="System.ComponentModel.TypeConverter" version="4.3.0" />
+        <dependency id="System.Net.Security" version="4.3.1" />
+        <dependency id="System.Runtime.InteropServices.RuntimeInformation" version="4.3.0" />
+        <dependency id="System.Threading.Timer" version="4.3.0" />
+        <dependency id="System.Data.Common" version="4.3.0" />
+        <dependency id="System.Data.SqlClient" version="4.3.1" />
+        <dependency id="System.Diagnostics.Process" version="4.3.0" />
+        <dependency id="System.IO.FileSystem.Primitives" version="4.3.0" />
+        <dependency id="System.IO.MemoryMappedFiles" version="4.3.0" />
+        <dependency id="System.Linq.Expressions" version="4.3.0" />
+        <dependency id="System.Net.Sockets" version="4.3.0" />
+        <dependency id="System.Reflection" version="4.3.0" />
+        <dependency id="System.Reflection.TypeExtensions" version="4.3.0" />
+        <dependency id="System.Resources.ResourceManager" version="4.3.0" />
+        <dependency id="System.Security.Principal.Windows" version="4.3.0" />
+        <dependency id="System.Text.Encoding.CodePages" version="4.3.0" />
+        <dependency id="System.Diagnostics.TextWriterTraceListener" version="4.3.0" />
+        <dependency id="System.IO.Compression" version="4.3.0" />
+        <dependency id="System.Threading.ThreadPool" version="4.3.0" />
+        <dependency id="System.IO.Pipes" version="4.3.0" />
+        <dependency id="System.Net.NameResolution" version="4.3.0" />
+        <dependency id="System.Runtime.Serialization.Formatters" version="4.3.0" />
+        <dependency id="System.Threading.Tasks" version="4.3.0" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

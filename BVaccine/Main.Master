@@ -1,0 +1,225 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="BVaccine.Main" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" class="no-js" lang="en">
+
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>CODI</title>
+       <link id="Link1" runat="server" rel="icon" href="~/img/iconn.ico" type="image/ico" />
+    <link href="css/bootstrap.css" rel="stylesheet" />   
+    <%-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />--%>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css" />
+    <link href="css/custom.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/divtable.css" />
+
+    <script src="//use.edgefonts.net/bebas-neue.js"></script>
+
+    <!-- Custom Fonts & Icons -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,800' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="css/icomoon-social.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    
+    <%--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>--%>
+    
+    <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
+    <style>
+         .dropdown-submenu {
+            position: relative;
+        }
+
+        .dropdown-submenu .dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-top: -1px;
+        }
+
+        .thStyle {
+            height: 40px;
+            font-family: Calibri;
+            color: #1b2d3d;
+        }
+
+        .tdStyle {
+            padding-left: 15px;
+        }
+
+        .tdText {
+            /* background-color:#e3eeff;*/
+            color: black;
+        }
+
+
+        .txtbxRd {
+            border-radius: 2px;
+            border: 2px solid #A2DED0;
+            padding: 0px;
+            height: 26px;
+        }
+    </style>
+     <script type="text/javascript">
+
+         function onlyAlphabets(evt) {
+             var charCode;
+             if (window.event)
+                 charCode = window.event.keyCode;  //for IE
+             else
+                 charCode = evt.which;  //for firefox
+             if (charCode == 32) //for &lt;space&gt; symbol
+                 return true;
+             if (charCode > 31 && charCode < 65) //for characters before 'A' in ASCII Table
+                 return false;
+             if (charCode > 90 && charCode < 97) //for characters between 'Z' and 'a' in ASCII Table
+                 return false;
+             if (charCode > 122) //for characters beyond 'z' in ASCII Table
+                 return false;
+             return true;
+         }
+         function lettersOnly() {
+             var charCode = event.keyCode;
+
+             if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || charCode == 8)
+
+                 return true;
+             else
+                 return false;
+         }
+
+         function OnlyNumeric(evt) {
+             var theEvent = evt || window.event;
+             var key = theEvent.keyCode || theEvent.which;
+             key = String.fromCharCode(key);
+             var regex = /[0-9]/;
+             if (!regex.test(key)) {
+                 theEvent.returnValue = false;
+                 if (theEvent.preventDefault) theEvent.preventDefault();
+             }
+         }
+
+         $(document).ready(function () {
+             $('.dropdown-submenu a.test').on("click", function (e) {
+                 $(this).next('ul').toggle();
+                 e.stopPropagation();
+                 e.preventDefault();
+             });
+         });
+
+    </script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+
+<body>
+
+    <form id="form1" runat="server">
+
+        <div>
+            <header class="navbar navbar-inverse navbar-fixed-top" role="banner">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                      <%--  <a class="navbar-brand" href="#">
+                            <img src="img/vppt.png" alt="Basica"></a>--%>
+                    </div>
+
+
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="active" runat="server" id="home"><a href="WebForm1.aspx">Home</a></li>
+
+                            <li class="dropdown" runat="server" id="forms">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Forms<i class="icon-angle-down"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li runat="server" id="Adverse"><a href="Adverse.aspx">Adverse Event</a></li>
+                                    <li class="divider"></li>
+                                    <li runat="server" id="Concomitant"><a href="Concomitant.aspx">Concomitant Medications</a></li>   
+                                    <li class="divider"></li>                                 
+                                    <li runat="server" id="Protocol"><a href="protocol.aspx">Protocol Deviation</a></li>
+                                    <li class="divider"></li>
+                                    <li runat="server" id="Withdrawal"><a href="withdrawal.aspx">Withdrawal Form</a></li>
+                                    <li class="divider"></li>
+                                    <li class="dropdown-submenu" runat="server" id="Visits" >
+                                        <a class="test" href="#" tabindex="-1" >Visit Forms&emsp;<i class="icon-angle-right"></i></a>
+                                        <ul class="dropdown-menu">
+                                            <li runat="server" id="V2"><a href="visit2.aspx">Second Visit</a></li>
+                                            <li runat="server" id="V3a"><a href="visit3a.aspx">Third Visit(9 months)</a></li>
+                                            <li runat="server" id="V3b"><a href="visit2.aspx">Third Visit(21 months)</a></li>
+                                            <li runat="server" id="V4"><a href="visit2.aspx">Fourth Visit</a></li>
+                                            <li runat="server" id="V5"><a href="visit2.aspx">Fifth Visit</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown" runat="server" id="Setting">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings<i class="icon-angle-down"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Add New User</a></li>
+                                    <li><a href="#">Change Password</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Logout</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </header>
+            <!--/header-->
+
+
+
+
+
+
+
+
+            <div class="section" style="margin-top: 40px">
+
+
+
+
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+
+
+            </div>
+        </div>
+        <!-- End Our Clients -->
+
+
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+            
+            
+        </asp:ContentPlaceHolder>
+
+
+        <!-- Javascripts -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/jquery-1.9.1.min.js"><\/script>')</script>
+        <script src="js/bootstrap.min.js"></script>
+
+        <!-- Scrolling Nav JavaScript -->
+        <script src="js/jquery.easing.min.js"></script>
+        <script src="js/scrolling-nav.js"></script>
+
+    </form>
+</body>
+</html>

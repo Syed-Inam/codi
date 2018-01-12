@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>MySql.Web</id>
+    <version>6.10.4</version>
+    <title>MySql.Web</title>
+    <authors>Oracle</authors>
+    <owners>Oracle</owners>
+    <licenseUrl>http://www.gnu.org/licenses/old-licenses/gpl-2.0.html</licenseUrl>
+    <projectUrl>http://dev.mysql.com/downloads/</projectUrl>
+    <iconUrl>http://www.mysql.com/common/logos/logo-mysql-170x115.png</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>MySql.Web</description>
+    <summary />
+    <copyright>Copyright © 2016, 2017, Oracle and/or its affiliates. All rights reserved.</copyright>
+    <tags>MySql .NET Connector Connector/NET</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.5.2">
+        <dependency id="MySql.Data" version="6.10.4" />
+        <dependency id="Microsoft.AspNet.Razor" version="3.2.3" />
+        <dependency id="Microsoft.AspNet.WebPages" version="3.2.3" />
+        <dependency id="Microsoft.AspNet.WebPages.Data" version="3.2.3" />
+        <dependency id="Microsoft.AspNet.WebPages.WebData" version="3.2.3" />
+        <dependency id="Microsoft.Web.Infrastructure" version="1.0.0" />
+        <dependency id="WebMatrix.WebData" version="2.0.30506" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>
