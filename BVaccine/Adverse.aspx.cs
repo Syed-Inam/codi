@@ -17,6 +17,12 @@ namespace BVaccine
         protected void Page_Load(object sender, EventArgs e)
         {
             Session["WebForm"] = "Forms";
+            if (Session["User"] != null)
+            {
+            }
+            else
+                Response.Redirect("login.aspx");
+            RangeValidator1.MaximumValue = DateTime.Now.ToString("dd/MM/yyyy");
         }
 
 
@@ -48,7 +54,6 @@ namespace BVaccine
             }
             return exist;
         }
-
 
 
         public void insertdata()
@@ -97,84 +102,7 @@ namespace BVaccine
             {
                 showalert("Enter Date of birth!");
                 aepid.Focus();
-            }
-
-            //else if (txtq4.Text == "" || !(txtq4.Text == "1" || txtq4.Text == "2"))
-            //{
-            //    showalert("Enter Value!");
-            //    txtq4.Text = "";
-            //    txtq4.Focus();
-            //}
-            //else if (txtq5.Text == "" || !(txtq5.Text == "1" || txtq5.Text == "2"))
-            //{
-            //    showalert("Enter Value where 1 or 2 only!");
-            //    txtq5.Text = "";
-            //    txtq5.Focus();
-            //}
-            //else if (txtq5.Text == "1" && (txtq6.Text == "" || !(txtq6.Text == "1" || txtq6.Text == "2")))
-            //{
-            //    showalert("Enter Value where 1 or 2 only!");
-            //    txtq6.Text = "";
-            //    txtq6.Focus();
-            //}
-            //else if (txtq7.Text == "" || !(txtq7.Text == "1" || txtq7.Text == "2"))
-            //{
-            //    showalert("Enter Value where 1 or 2 only!");
-            //    txtq7.Text = "";
-            //    txtq7.Focus();
-            //}
-            //else if (txtq8.Text == "" || !(txtq8.Text == "1" || txtq8.Text == "2" || txtq8.Text == "3"))
-            //{
-            //    showalert("Enter Value where 1 or 2 or 3 only!");
-            //    txtq8.Text = "";
-            //    txtq8.Focus();
-            //}
-            //else if (txtq8.Text != "3" && (txtq9.Text == "" || !(txtq9.Text == "1" || txtq9.Text == "2" || txtq9.Text == "3")))
-            //{
-            //    showalert("Enter Value where 1 or 2 or 3 only!");
-            //    txtq9.Text = "";
-            //    txtq9.Focus();
-            //}
-            //else if (txtq9.Text == "3" && (txtq9x.Text == "" || txtq9x.Text.Length < 1))
-            //{
-            //    showalert("Enter Specify Value!");
-            //    txtq9x.Enabled = true;
-            //    txtq9x.Focus();
-            //}
-            //else if (txtq10.Text == "" || !(txtq10.Text == "1" || txtq10.Text == "2" || txtq10.Text == "3"))
-            //{
-            //    showalert("Enter Value where 1 or 2 or 3 only!");
-            //    txtq10.Text = "";
-            //    txtq10.Focus();
-            //}
-            //else if (txtq11.Text == "" || !(txtq11.Text == "1" || txtq11.Text == "2" || txtq11.Text == "3"))
-            //{
-            //    showalert("Enter Value where 1 or 2 or 3 only!");
-            //    txtq11.Text = "";
-            //    txtq11.Focus();
-            //}
-            //else if (txtq12dt.Text == "")
-            //{
-            //    showalert("Enter Date of BLOOD COLLECTION!");
-            //    txtq12dt.Focus();
-            //}
-            //else if (txtq13t.Text == "")
-            //{
-            //    showalert("Enter Time of collection!");
-            //    txtq13t.Focus();
-            //}
-            //else if (txtq14.Text == "" || !(txtq14.Text == "1" || txtq14.Text == "2"))
-            //{
-            //    showalert("Enter Value where 1 or 2 only!");
-            //    txtq14.Text = "";
-            //    txtq14.Focus();
-            //}
-            //else if (txtq15.Text == "" || !(txtq15.Text == "1" || txtq15.Text == "2"))
-            //{
-            //    showalert("Enter Value where 1 or 2 only!");
-            //    txtq15.Text = "";
-            //    txtq15.Focus();
-            //}
+            }            
 
             else
             {

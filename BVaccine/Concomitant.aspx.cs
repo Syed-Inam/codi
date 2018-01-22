@@ -17,6 +17,11 @@ namespace BVaccine
         protected void Page_Load(object sender, EventArgs e)
         {
             Session["WebForm"] = "Forms";
+            if (Session["User"] != null)
+            {
+            }
+            else
+                Response.Redirect("login.aspx");
         }
 
         public void showalert(string message)

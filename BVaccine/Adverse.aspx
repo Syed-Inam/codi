@@ -107,7 +107,7 @@
                 <div class="form-group">
                     <label class="control-label col-sm-4"><b>Participant Initials:  </b></label>
                     <div class="col-sm-8">
-                        <asp:TextBox ID="aepin" runat="server" ClientIDMode="Static" MaxLength="3" class="form-control" Style="text-transform: uppercase;"></asp:TextBox>
+                        <asp:TextBox ID="aepin" runat="server" ClientIDMode="Static" MaxLength="5" class="form-control" Style="text-transform: uppercase;"></asp:TextBox>
                     </div>
                 </div>
                 <div class="form-group">
@@ -115,6 +115,7 @@
                     <div class="col-sm-8">
                         <asp:TextBox ID="aedob" runat="server" ClientIDMode="Static" class="form-control" placeholder="dd/MM/yyyy" onkeypress="return OnlyNumeric(event)" onblur="isValidDate('aedob')"></asp:TextBox>
                         <cc1:MaskedEditExtender ID="MaskedEditExtender2" runat="server" Mask="99/99/9999" MaskType="Date" TargetControlID="aedob" />
+                       <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="aedob" ErrorMessage="*Invalid Date" Font-Size="Smaller" ForeColor="Red" MaximumValue="01/01/2020" MinimumValue="01/01/2010" Type="Date"></asp:RangeValidator>
                     </div>
                 </div>
             </div>
@@ -138,7 +139,7 @@
                     </div>
                     <div class="divTableCell">
                         <asp:TextBox ID="aes_inv_dt" CssClass="txtboxx" runat="server" placeholder="dd/mm/yyyy" onkeypress="return OnlyNumeric(event)" onblur="isValidDate('aes_inv_dt')" ClientIDMode="Static"></asp:TextBox>
-                        <cc1:MaskedEditExtender ID="MaskedEditExtender9" runat="server" Mask="99/99/9999" MaskType="Date" TargetControlID="aes_inv_dt" />
+                        <cc1:MaskedEditExtender ID="MaskedEditExtender9" runat="server" Mask="99/99/9999" MaskType="Date" TargetControlID="aes_inv_dt" />                        
                         <%--<asp:RegularExpressionValidator ID="RegEx1" runat="server" ValidationExpression="^([0]?[1-9]|[1|2][0-9]|[3][0|1])[./-]([0]?[1-9]|[1][0-2])[./-](201[6-9])$" ErrorMessage="*Invalid Date" ControlToValidate="aes_inv_dt" ForeColor="Red" Font-Size="X-Small" Display="Dynamic"></asp:RegularExpressionValidator>--%>
                     </div>
                     <div class="divTableCell">

@@ -36,6 +36,12 @@
             
         }
 
+        function showmore(id, btn) {
+            var el = document.getElementById(id).parentElement.parentElement;
+            el.nextElementSibling.style.display = "table-row";
+            document.getElementById(btn).style.display = "none";
+        }
+
     </script>
 
 </asp:Content>
@@ -82,8 +88,8 @@
                             <div class="divTableCell">
                                 <asp:TextBox ID="txtbx3" CssClass="txtboxx" ClientIDMode="Static" runat="server" placeholder="dd/mm/yyyy" Format="dd/mm/yyyy" onblur="isValidDate(txtbx3)"></asp:TextBox>
                                 <cc1:MaskedEditExtender ID="MaskedEditExtender1" runat="server" Mask="99/99/9999" MaskType="Date" TargetControlID="txtbx3" />
-                                <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtbx3" ErrorMessage="*Date Error" Font-Size="Smaller" ForeColor="Red" MaximumValue="01/01/2020" MinimumValue="01/01/2014" Type="Date"></asp:RangeValidator>
-                                <asp:CompareValidator ID="CompareDOV1" runat="server" ControlToValidate="txtbx3" Operator="LessThan" Type="Date" ErrorMessage="*Invalid Date" Font-Size="Smaller" ForeColor="Red"></asp:CompareValidator>
+                                <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtbx3" ErrorMessage="*Invalid Date" Font-Size="Smaller" ForeColor="Red" MaximumValue="01/01/2020" MinimumValue="01/01/2014" Type="Date"></asp:RangeValidator>
+                                <%--<asp:CompareValidator ID="CompareDOV1" runat="server" ControlToValidate="txtbx3" Operator="LessThan" Type="Date" ErrorMessage="-Invalid Date" Font-Size="Smaller" ForeColor="Red"></asp:CompareValidator>--%>
                             </div>
                         </div>
                         <div class="divTableRow">
@@ -92,8 +98,40 @@
                         <div class="divTableRow">   
                             <div class="divTableCell"></div>                         
                             <div class="divTableCell">
-                                <asp:TextBox ID="txtbx4" CssClass="txtboxx" ClientIDMode="Static" placeholder="description" runat="server" TextMode="MultiLine" Wrap="true"></asp:TextBox>
-                                <cc1:ResizableControlExtender ID="ResizableControlExtender1" runat="server" HandleCssClass="handle" ResizableCssClass="resizing" MaximumHeight="400" MaximumWidth="800" MinimumHeight="100" MinimumWidth="300" TargetControlID="txtbx4" />
+                                <asp:TextBox ID="txtbx4_1" CssClass="txtboxx" ClientIDMode="Static" placeholder="description" runat="server" TextMode="MultiLine" Wrap="true"></asp:TextBox>
+                                <cc1:ResizableControlExtender ID="ResizableControlExtender1" runat="server" HandleCssClass="handle" ResizableCssClass="resizing" MaximumHeight="100" MaximumWidth="400" MinimumHeight="50" MinimumWidth="300" TargetControlID="txtbx4_1" />
+                                <button id="btnd1" type="button" onclick="showmore('txtbx4_1', 'btnd1')">more</button>
+                            </div>
+                        </div>
+                        <div class="divTableRow" id="d2" style="display:none" >   
+                            <div class="divTableCell"></div>                         
+                            <div class="divTableCell">
+                                <asp:TextBox ID="txtbx4_2" CssClass="txtboxx" ClientIDMode="Static" placeholder="description" runat="server" TextMode="MultiLine" Wrap="true"></asp:TextBox>
+                                <cc1:ResizableControlExtender ID="ResizableControlExtender4" runat="server" HandleCssClass="handle" ResizableCssClass="resizing" MaximumHeight="100" MaximumWidth="400" MinimumHeight="50" MinimumWidth="300" TargetControlID="txtbx4_2" />
+                                <button id="btnd2" type="button" onclick="showmore('txtbx4_2', 'btnd2')">more</button>
+                            </div>
+                        </div>
+                        <div class="divTableRow" id="d3" style="display:none">   
+                            <div class="divTableCell"></div>                         
+                            <div class="divTableCell">
+                                <asp:TextBox ID="txtbx4_3" name="description" CssClass="txtboxx" ClientIDMode="Static" placeholder="description" runat="server" TextMode="MultiLine" Wrap="true"></asp:TextBox>
+                                <cc1:ResizableControlExtender ID="ResizableControlExtender5" runat="server" HandleCssClass="handle" ResizableCssClass="resizing" MaximumHeight="100" MaximumWidth="400" MinimumHeight="50" MinimumWidth="300" TargetControlID="txtbx4_3" />
+                                <button id="btnd3" type="button" onclick="showmore('txtbx4_3', 'btnd3')">more</button>
+                            </div>
+                        </div>
+                        <div class="divTableRow" id="d4" style="display:none">   
+                            <div class="divTableCell"></div>                         
+                            <div class="divTableCell">
+                                <asp:TextBox ID="txtbx4_4" CssClass="txtboxx" ClientIDMode="Static" placeholder="description" runat="server" TextMode="MultiLine" Wrap="true"></asp:TextBox>
+                                <cc1:ResizableControlExtender ID="ResizableControlExtender6" runat="server" HandleCssClass="handle" ResizableCssClass="resizing" MaximumHeight="100" MaximumWidth="400" MinimumHeight="50" MinimumWidth="300" TargetControlID="txtbx4_4" />
+                               <button id="btnd4" type="button" onclick="showmore('txtbx4_4', 'btnd4')">more</button>
+                            </div>
+                        </div>
+                        <div class="divTableRow" id="d5" style="display:none">   
+                            <div class="divTableCell"></div>                         
+                            <div class="divTableCell">
+                                <asp:TextBox ID="txtbx4_5" CssClass="txtboxx" ClientIDMode="Static" placeholder="description" runat="server" TextMode="MultiLine" Wrap="true"></asp:TextBox>
+                                <cc1:ResizableControlExtender ID="ResizableControlExtender7" runat="server" HandleCssClass="handle" ResizableCssClass="resizing" MaximumHeight="100" MaximumWidth="400" MinimumHeight="50" MinimumWidth="300" TargetControlID="txtbx4_5" />
                             </div>
                         </div>
                         <div class="divTableRow">
@@ -102,8 +140,40 @@
                         <div class="divTableRow"> 
                             <div class="divTableCell"></div>                          
                             <div class="divTableCell">
-                                <asp:TextBox ID="txtbx5" CssClass="txtboxx" ClientIDMode="Static" placeholder="reason" runat="server" TextMode="MultiLine" Wrap="true"></asp:TextBox>
-                                <cc1:ResizableControlExtender ID="ResizableControlExtender2" runat="server" HandleCssClass="handle" ResizableCssClass="resizing" MaximumHeight="400" MaximumWidth="800" MinimumHeight="100" MinimumWidth="300" TargetControlID="txtbx5" />
+                                <asp:TextBox ID="txtbx5_1" CssClass="txtboxx" ClientIDMode="Static" placeholder="reason" runat="server" TextMode="MultiLine" Wrap="true"></asp:TextBox>
+                                <cc1:ResizableControlExtender ID="ResizableControlExtender2" runat="server" HandleCssClass="handle" ResizableCssClass="resizing" MaximumHeight="100" MaximumWidth="400" MinimumHeight="50" MinimumWidth="300" TargetControlID="txtbx5_1" />
+                                <button id="btnr1" type="button" onclick="showmore('txtbx5_1', 'btnr1')">more</button>
+                            </div>
+                        </div>
+                        <div class="divTableRow" style="display:none" > 
+                            <div class="divTableCell"></div>                          
+                            <div class="divTableCell">
+                                <asp:TextBox ID="txtbx5_2" CssClass="txtboxx" ClientIDMode="Static" placeholder="reason" runat="server" TextMode="MultiLine" Wrap="true"></asp:TextBox>
+                                <cc1:ResizableControlExtender ID="ResizableControlExtender8" runat="server" HandleCssClass="handle" ResizableCssClass="resizing" MaximumHeight="100" MaximumWidth="400" MinimumHeight="50" MinimumWidth="300" TargetControlID="txtbx5_2" />
+                                <button id="btnr2" type="button" onclick="showmore('txtbx5_2', 'btnr2')">more</button>
+                            </div>
+                        </div>
+                        <div class="divTableRow" style="display:none" > 
+                            <div class="divTableCell"></div>                          
+                            <div class="divTableCell">
+                                <asp:TextBox ID="txtbx5_3" CssClass="txtboxx" ClientIDMode="Static" placeholder="reason" runat="server" TextMode="MultiLine" Wrap="true"></asp:TextBox>
+                                <cc1:ResizableControlExtender ID="ResizableControlExtender9" runat="server" HandleCssClass="handle" ResizableCssClass="resizing" MaximumHeight="100" MaximumWidth="400" MinimumHeight="50" MinimumWidth="300" TargetControlID="txtbx5_3" />
+                                <button id="btnr3" type="button" onclick="showmore('txtbx5_3', 'btnr3')">more</button>
+                            </div>
+                        </div>
+                        <div class="divTableRow" style="display:none" > 
+                            <div class="divTableCell"></div>                          
+                            <div class="divTableCell">
+                                <asp:TextBox ID="txtbx5_4" CssClass="txtboxx" ClientIDMode="Static" placeholder="reason" runat="server" TextMode="MultiLine" Wrap="true"></asp:TextBox>
+                                <cc1:ResizableControlExtender ID="ResizableControlExtender10" runat="server" HandleCssClass="handle" ResizableCssClass="resizing" MaximumHeight="100" MaximumWidth="400" MinimumHeight="50" MinimumWidth="300" TargetControlID="txtbx5_4" />
+                                <button id="btnr4" type="button" onclick="showmore('txtbx5_4', 'btnr4')">more</button>
+                            </div>
+                        </div>
+                        <div class="divTableRow" style="display:none" > 
+                            <div class="divTableCell"></div>                          
+                            <div class="divTableCell">
+                                <asp:TextBox ID="txtbx5_5" CssClass="txtboxx" ClientIDMode="Static" placeholder="reason" runat="server" TextMode="MultiLine" Wrap="true"></asp:TextBox>
+                                <cc1:ResizableControlExtender ID="ResizableControlExtender11" runat="server" HandleCssClass="handle" ResizableCssClass="resizing" MaximumHeight="100" MaximumWidth="400" MinimumHeight="50" MinimumWidth="300" TargetControlID="txtbx5_5" />
                             </div>
                         </div>
                         <div class="divTableRow">
@@ -142,15 +212,49 @@
                         <div class="divTableRow">
                             <div class="divTableCell"></div>                            
                             <div class="divTableCell">
-                                <asp:TextBox ID="txtbx6" CssClass="txtboxx" placeholder="Steps" ClientIDMode="Static" runat="server" TextMode="MultiLine" Wrap="true"></asp:TextBox>
-                                <cc1:ResizableControlExtender ID="ResizableControlExtender3" runat="server" HandleCssClass="handle" ResizableCssClass="resizing" MaximumHeight="400" MaximumWidth="800" MinimumHeight="100" MinimumWidth="300" TargetControlID="txtbx6" />
+                                <asp:TextBox ID="txtbx6_1" CssClass="txtboxx" placeholder="Steps" ClientIDMode="Static" runat="server" TextMode="MultiLine" Wrap="true"></asp:TextBox>
+                                <cc1:ResizableControlExtender ID="ResizableControlExtender3" runat="server" HandleCssClass="handle" ResizableCssClass="resizing" MaximumHeight="100" MaximumWidth="400" MinimumHeight="50" MinimumWidth="300" TargetControlID="txtbx6_1" />
+                                <button id="btns1" type="button" onclick="showmore('txtbx6_1', 'btns1')">more</button>
                             </div>
                         </div>
+                        <div class="divTableRow" style="display:none">
+                            <div class="divTableCell"></div>                            
+                            <div class="divTableCell">
+                                <asp:TextBox ID="txtbx6_2" CssClass="txtboxx" placeholder="Steps" ClientIDMode="Static" runat="server" TextMode="MultiLine" Wrap="true"></asp:TextBox>
+                                <cc1:ResizableControlExtender ID="ResizableControlExtender12" runat="server" HandleCssClass="handle" ResizableCssClass="resizing" MaximumHeight="100" MaximumWidth="400" MinimumHeight="50" MinimumWidth="300" TargetControlID="txtbx6_2" />
+                                <button id="btns2" type="button" onclick="showmore('txtbx6_2', 'btns2')">more</button>
+                            </div>
+                        </div>
+                        <div class="divTableRow" style="display:none">
+                            <div class="divTableCell"></div>                            
+                            <div class="divTableCell">
+                                <asp:TextBox ID="txtbx6_3" CssClass="txtboxx" placeholder="Steps" ClientIDMode="Static" runat="server" TextMode="MultiLine" Wrap="true"></asp:TextBox>
+                                <cc1:ResizableControlExtender ID="ResizableControlExtender13" runat="server" HandleCssClass="handle" ResizableCssClass="resizing" MaximumHeight="100" MaximumWidth="400" MinimumHeight="50" MinimumWidth="300" TargetControlID="txtbx6_3" />
+                                <button id="btns3" type="button" onclick="showmore('txtbx6_3', 'btns3')">more</button>
+                            </div>
+                        </div>
+                        <div class="divTableRow" style="display:none">
+                            <div class="divTableCell"></div>                            
+                            <div class="divTableCell">
+                                <asp:TextBox ID="txtbx6_4" CssClass="txtboxx" placeholder="Steps" ClientIDMode="Static" runat="server" TextMode="MultiLine" Wrap="true"></asp:TextBox>
+                                <cc1:ResizableControlExtender ID="ResizableControlExtender14" runat="server" HandleCssClass="handle" ResizableCssClass="resizing" MaximumHeight="100" MaximumWidth="400" MinimumHeight="50" MinimumWidth="300" TargetControlID="txtbx6_4" />
+                                <button id="btns4" type="button" onclick="showmore('txtbx6_4', 'btns4')">more</button>
+                            </div>
+                        </div>
+                        <div class="divTableRow" style="display:none">
+                            <div class="divTableCell"></div>                            
+                            <div class="divTableCell">
+                                <asp:TextBox ID="txtbx6_5" CssClass="txtboxx" placeholder="Steps" ClientIDMode="Static" runat="server" TextMode="MultiLine" Wrap="true"></asp:TextBox>
+                                <cc1:ResizableControlExtender ID="ResizableControlExtender15" runat="server" HandleCssClass="handle" ResizableCssClass="resizing" MaximumHeight="100" MaximumWidth="400" MinimumHeight="50" MinimumWidth="300" TargetControlID="txtbx6_5" />
+                            </div>
+                        </div>
+
                         <div class="divTableRow">
                             <div class="divTableCell">Completed by: </div>
                             <div class="divTableCell">
                                 <asp:TextBox ID="txtbx7" CssClass="txtboxx" placeholder="name" ClientIDMode="Static" runat="server" MaxLength="10"></asp:TextBox>
                                 <asp:TextBox ID="txtbx7dt" CssClass="txtboxx" ClientIDMode="Static" runat="server" placeholder="dd/mm/yyyy" Format="dd/mm/yyyy"></asp:TextBox>
+                                <asp:RangeValidator ID="RangeValidator2" runat="server" ControlToValidate="txtbx7dt" ErrorMessage="*Invalid Date" Font-Size="Smaller" ForeColor="Red" MaximumValue="01/01/2020" MinimumValue="01/01/2015" Type="Date"></asp:RangeValidator>
                                 <cc1:MaskedEditExtender ID="MaskedEditExtender5" runat="server" Mask="99/99/9999" MaskType="Date" TargetControlID="txtbx7dt" />                              
                             </div>
                         </div>
@@ -159,6 +263,7 @@
                             <div class="divTableCell">
                                 <asp:TextBox ID="txtbx8" CssClass="txtboxx" placeholder="name" ClientIDMode="Static" runat="server" MaxLength="10"></asp:TextBox>
                                 <asp:TextBox ID="txtbx8dt" CssClass="txtboxx" ClientIDMode="Static" runat="server" placeholder="dd/mm/yyyy" Format="dd/mm/yyyy"></asp:TextBox>
+                                <asp:RangeValidator ID="RangeValidator3" runat="server" ControlToValidate="txtbx8dt" ErrorMessage="*Invalid Date" Font-Size="Smaller" ForeColor="Red" MaximumValue="01/01/2020" MinimumValue="01/01/2015" Type="Date"></asp:RangeValidator>
                                 <cc1:MaskedEditExtender ID="MaskedEditExtender4" runat="server" Mask="99/99/9999" MaskType="Date" TargetControlID="txtbx8dt" />                              
                             </div>
                         </div>
@@ -171,6 +276,7 @@
                             </div>
                             <div class="divTableCell">
                                 <asp:TextBox ID="txtbxdt1" CssClass="txtboxx" ClientIDMode="Static" runat="server" placeholder="dd/mm/yyyy" Format="dd/mm/yyyy" Enabled="false" ></asp:TextBox>
+                                <asp:RangeValidator ID="RangeValidator4" runat="server" ControlToValidate="txtbxdt1" ErrorMessage="*Invalid Date" Font-Size="Smaller" ForeColor="Red" MaximumValue="01/01/2020" MinimumValue="01/01/2015" Type="Date"></asp:RangeValidator>
                                 <cc1:MaskedEditExtender ID="MaskedEditExtender2" runat="server" Mask="99/99/9999" MaskType="Date" TargetControlID="txtbxdt1" />                              
                             </div>
                         </div>
@@ -180,6 +286,7 @@
                             </div>
                             <div class="divTableCell">
                                 <asp:TextBox ID="txtbxdt2" CssClass="txtboxx" ClientIDMode="Static" runat="server" placeholder="dd/mm/yyyy" Format="dd/mm/yyyy" Enabled="false"></asp:TextBox>
+                                <asp:RangeValidator ID="RangeValidator5" runat="server" ControlToValidate="txtbxdt2" ErrorMessage="*Invalid Date" Font-Size="Smaller" ForeColor="Red" MaximumValue="01/01/2020" MinimumValue="01/01/2015" Type="Date"></asp:RangeValidator>
                                 <cc1:MaskedEditExtender ID="MaskedEditExtender3" runat="server" Mask="99/99/9999" MaskType="Date" TargetControlID="txtbxdt2" />                              
                             </div>
                         </div>

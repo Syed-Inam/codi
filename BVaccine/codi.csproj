@@ -72,9 +72,11 @@
     <Content Include="css\bootstrap.css" />
     <Content Include="css\custom.css" />
     <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\gradient-background.jpg" />
     <Content Include="css\icomoon-social.css" />
     <Content Include="css\main.css" />
     <Content Include="css\divtable.css" />
+    <Content Include="css\style.css" />
     <Content Include="docs\MySqlCommand.xml" />
     <Content Include="docs\MySqlCommandBuilder.xml" />
     <Content Include="docs\MySqlConnection.xml" />
@@ -133,10 +135,14 @@
     <Content Include="js\jquery.easing.min.js" />
     <Content Include="js\modernizr-2.6.2-respond-1.1.0.min.js" />
     <Content Include="js\scrolling-nav.js" />
+    <Content Include="login.aspx" />
     <Content Include="packages\AjaxControlToolkit.17.1.1.0\lib\net40\AjaxControlToolkit.dll" />
     <Content Include="packages\AjaxControlToolkit.17.1.1.0\readme.txt" />
     <Content Include="protocol.aspx" />
     <Content Include="visit3a.aspx" />
+    <Content Include="visit3b.aspx" />
+    <Content Include="visit4.aspx" />
+    <Content Include="visit5.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -159,6 +165,13 @@
     <Compile Include="Concomitant.aspx.designer.cs">
       <DependentUpon>Concomitant.aspx</DependentUpon>
     </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Main.Master.cs">
       <DependentUpon>Main.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -180,6 +193,27 @@
     </Compile>
     <Compile Include="visit3a.aspx.designer.cs">
       <DependentUpon>visit3a.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="visit3b.aspx.cs">
+      <DependentUpon>visit3b.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="visit3b.aspx.designer.cs">
+      <DependentUpon>visit3b.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="visit4.aspx.cs">
+      <DependentUpon>visit4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="visit4.aspx.designer.cs">
+      <DependentUpon>visit4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="visit5.aspx.cs">
+      <DependentUpon>visit5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="visit5.aspx.designer.cs">
+      <DependentUpon>visit5.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>

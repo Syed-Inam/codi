@@ -13,6 +13,7 @@ namespace BVaccine
     public partial class withdrawal : System.Web.UI.Page
     {
         string constr2 = ConfigurationManager.ConnectionStrings["LocalMySql2"].ConnectionString;
+        MySqlDataReader dreader;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,17 +30,32 @@ namespace BVaccine
         }
 
 
+        public bool FormExist()
+        {
+            MySqlConnection conn = new MySqlConnection(constr2);
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand("select * from withdrawal where wfst='" + txtbxid.Text + "'", conn);
+            dreader = cmd.ExecuteReader();
+            if (dreader.Read())
+            {
+                conn.Close();
+                return true;
+            }
+            conn.Close();
+            return false;
+        }
+
         public void insertdata()
         {
             try
             {
                 MySqlConnection con = new MySqlConnection(constr2);
                 con.Open();
-                MySqlCommand cmd = new MySqlCommand("insert into withdrawal(wfst,wfq1, wfq2, wfq3, wfq4, wfq5, wfq6, wfq7, wfq8, wfsup_cd, wfsup_dt, wfinv_cd, wfinv_dt)" +
-                    "values ('" + txtbxid.Text.ToUpper() + "','" + txtbx1.Text.ToUpper() + "', '" + txtbx2.Text.ToUpper() + "', '" + txtbx3.Text + "', '" + txtbx4.Text + "','" + txtbx5.Text + "','" + txtbx6.Text + "', " +
+                MySqlCommand cmd = new MySqlCommand("insert into withdrawal(wfstno, wfst,wfq1, wfq2, wfq3, wfq4, wfq5, wfq6, wfq7, wfq8, wfsup_cd, wfsup_dt, wfinv_cd, wfinv_dt)" +
+                    "values ('" + txtbxid.Text.ToUpper() + "','" + txtbxst.Text.ToUpper() + "','" + txtbx1.Text.ToUpper() + "', '" + txtbx2.Text.ToUpper() + "', '" + txtbx3.Text.ToUpper() + "', '" + txtbx4.Text + "','" + txtbx5.Text + "','" + txtbx6.Text + "', " +
                     "'" + Rdbtn1.SelectedItem.Value + "','" + rdbtn2.SelectedItem.Value + "', '" + sup_nm.Text + "', '" + sup_dt.Text + "','" + inv_nm.Text + "','" + inv_dt.Text + "')", con);
                 cmd.ExecuteNonQuery();
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "alerts", "javascript:alert('Submitted Successfully!');window.location.href='withdrawal.aspx';", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alerts", "javascript:alert('Form Submitted Successfully!');window.location.href='withdrawal.aspx';", true);
                 con.Close();
             }
             catch (Exception ex)
@@ -51,26 +67,65 @@ namespace BVaccine
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-
-            if (txtbx1.Text == "")
+            if (txtbxid.Text == "codi___-____")
             {
-                showalert("Enter Study ID!");
+                showalert("Enter sutydy ID");
+                txtbxid.Focus();
+            }
+            else if (txtbx1.Text == "")
+            {
+                showalert("Enter Date of withdrawal!");
                 txtbx1.Focus();
             }
-            //else if (txtbx2.Text == "")
-            //{
-            //    showalert("Enter Participant initials!");
-            //    txtbx2.Focus();
-            //}
-                insertdata();
-            //else
-            //{
-            //    if (FormExist() == false)
-            //    {
-            //        insertdata();
-            //    }
-            //    txtbx1.Focus();
-            //}
+            else if (txtbx2.Text == "")
+            {
+                showalert("Enter Childs initials");
+                txtbx2.Focus();
+            }
+            else if (txtbx3.Text == "")
+            {
+                showalert("Enter mothers initials");
+                txtbx3.Focus();
+            }
+            else if (txtbx4.Text == "")
+            {
+                showalert("Enter Date of birth");
+                txtbx4.Focus();
+            }
+            else if (txtbx5.Text == "")
+            {
+                showalert("Enter Date of last visit");
+                txtbx5.Focus();
+            }
+            else if (txtbx6.Text == "")
+            {
+                showalert("Enter name of last visit");
+                txtbx6.Focus();
+            }
+            else if (Rdbtn1.SelectedItem == null)
+            {
+                showalert("Select Any option");
+                Rdbtn1.Focus();
+            }
+            else if (rdbtn2.SelectedItem == null)
+            {
+                showalert("Select Any option");
+                rdbtn2.Focus();
+            }
+            else if (rdbtn2.SelectedIndex == 3 && txtbx8.Text == "")
+            {
+                showalert("Please Specify other");
+                txtbx8.Focus();
+            }
+            else
+            {
+                if (FormExist() == false)
+                {
+                    insertdata();
+                }
+                else
+                    showalert("Study ID already withdrawn");
+            }
         }
 
     }

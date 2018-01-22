@@ -117,26 +117,16 @@
 
                     <td style="font-weight: 400;">DSSID</td>
                     <td style="text-align: left; padding-left: 15px">
-                        <asp:TextBox ID="txtDSSID" runat="server"  Style="text-transform: uppercase;" MaxLength="12" Height="31px" placeholder="dssid" ForeColor="Black"></asp:TextBox></td>
-                    <%--<td style="font-weight: 400;">Visit:</td>
-                    <td>
-                        <select id="m1" class="styledselect-month" style="color: black; width: 150px" runat="server">
-                            <option value="0" style="background:#eeeeee">Select Visit</option>
-                            <option value="v2" style="background:#eeeeee">&nbsp;Second</option>
-                            <option value="v3" style="background:#eeeeee">&nbsp;Third</option>
-                            <option value="v4" style="background:#eeeeee">&nbsp;Fourth</option>
-                            <option value="v5" style="background:#eeeeee">&nbsp;Fifth</option>
-                        </select>
-                    </td>--%>
+                        <asp:TextBox ID="txtDSSID" runat="server"  Style="text-transform: uppercase;" MaxLength="12" Height="31px" placeholder="dssid" ForeColor="Black"></asp:TextBox></td> 
+                                       
                     <td>
                         <asp:Button ID="btnchk" class="btn-primary btn-sm" Height="37px" Width="80px" BackColor="#C5EFF7" ForeColor="#013243" Font-Size="Medium" Font-Bold="true" runat="server" Text="Check" OnClick="checkButton_Click" />
-
                     </td>
                 </tr>
             </table>
 
 
-            <asp:Panel ID="formPanel" runat="server" Visible="true">
+            <asp:Panel ID="formPanel" runat="server" Visible="false">
 
                 <h4 style="text-align: left; margin-top: 60px;margin-left:60px;"><b>Comparison of duration of immunity following IPV and fIPV: A community based randomized Controlled trial in Pakistan  </b></h4>
 
@@ -265,7 +255,7 @@
                         <td colspan="3" class="tdStyle tdText">
                             <asp:TextBox ID="txtq12dt" runat="server" CssClass="txtbxRd" placeholder="dd-mm-yyyy" Width="150px" ClientIDMode="Static"></asp:TextBox>
                             <cc1:MaskedEditExtender ID="MaskedEditExtender3" runat="server" Mask="99-99-9999" MaskType="Date" TargetControlID="txtq12dt" />
-                            <asp:RangeValidator ID="RangeValidator3" runat="server" ControlToValidate="txtq12dt" ErrorMessage="*Invalid Date" Font-Size="Smaller" ForeColor="Red" MaximumValue="01/01/2030" MinimumValue="01/01/2000" Type="Date"></asp:RangeValidator>
+                            <asp:RangeValidator ID="RangeValidator3" runat="server" ControlToValidate="txtq12dt" ErrorMessage="*Invalid Date" Font-Size="Smaller" ForeColor="Red" MaximumValue="01/01/2020" MinimumValue="01/01/2014" Type="Date"></asp:RangeValidator>
 
                         </td>
                     </tr>
@@ -301,7 +291,7 @@
                     <tr class="thStyle" id="row16">
                         <td class="tdStyle"><b>16.</b> NUMBER OF SERUM SAMPLE ON CRYOTUBE: (Sample Number - S1)</td>
                         <td colspan="3" class="tdStyle tdText">
-                            <asp:TextBox ID="txtq16" runat="server" MaxLength="10" CssClass="txtbxRd" Width="150px" ClientIDMode="Static"></asp:TextBox></td>
+                            <asp:TextBox ID="txtq16" runat="server" MaxLength="10" CssClass="txtbxRd" Width="150px" ClientIDMode="Static" style="text-transform:uppercase"></asp:TextBox></td>
                     </tr>
                     <tr class="thStyle">
                         <td class="tdStyle"> DATE OF NEXT APPOINTMENT</td>

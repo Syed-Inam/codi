@@ -21,9 +21,15 @@ namespace BVaccine
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["User"] != null)
+            {
+            }
+            else
+                Response.Redirect("login.aspx");
             //RangeValidator1.MinimumValue = DateTime.Now.ToString("dd/MM/yyyy");
-            RangeValidator2.MaximumValue = DateTime.Now.ToString("dd/MM/yyyy");
-            RangeValidator3.MaximumValue = DateTime.Now.ToString("dd/MM/yyyy");
+            RangeValidator2.MaximumValue = DateTime.Now.ToString("dd-MM-yyyy");
+            RangeValidator3.MaximumValue = DateTime.Now.ToString("dd-MM-yyyy");
+            RangeValidator4.MinimumValue = DateTime.Now.ToString("dd-MM-yyyy");
             Session["WebForm"] = "Forms";
             txtStudyID.Focus();
         }
@@ -44,24 +50,27 @@ namespace BVaccine
             {
                 if (checkEnrollment())
                 {
-                    if (ChkID() == false)
+                    if (checkWithdrawal() == false)
                     {
-                        formPanel.Visible = true;
-                        btnchk.Visible = false;
-                        txtq1dt.Text = expdt.ToShortDateString();
-                        txtStudyID.Attributes.Add("readonly", "readonly");
-                        txtq1dt.Attributes.Add("readonly", "readonly");
-                        rdobtn.Attributes.Add("readonly", "readonly");
-                        txtq2dt.Focus();
-                        checkArm();
+                        if (ChkID() == false)
+                        {
+                            formPanel.Visible = true;
+                            btnchk.Visible = false;
+                            txtq1dt.Text = expdt.ToShortDateString();
+                            txtStudyID.Attributes.Add("readonly", "readonly");
+                            txtq1dt.Attributes.Add("readonly", "readonly");
+                            rdobtn.Attributes.Add("readonly", "readonly");
+                            txtq2dt.Focus();
+                            checkArm();
+                        }
+                        else
+                            showalert("Form already exists");
                     }
                     else
-                        showalert("Form already exists");
+                        showalert("This ID has already withdrawn from the case study.");
                 }
                 else
-                {
                     showalert("Study ID does not exist.");
-                }
             }
         }
 
@@ -83,18 +92,7 @@ namespace BVaccine
                     rdobtn.SelectedIndex = 3;
                     break;
             }
-            //string str = txtStudyID.Text;
-            //string n = str.Substring(0, 2);
-            //if (n == "14")
-            //{
-            //    rdobtn.Items.FindByValue("C").Enabled = false;
-            //    rdobtn.Items.FindByValue("D").Enabled = false;
-            //}
-            //else if (n == "09")
-            //{
-            //    rdobtn.Items.FindByValue("A").Enabled = false;
-            //    rdobtn.Items.FindByValue("B").Enabled = false;
-            //}
+            
         }
 
         public bool checkEnrollment()
@@ -131,6 +129,22 @@ namespace BVaccine
         }
 
 
+        public bool checkWithdrawal()
+        {
+            MySqlConnection con = new MySqlConnection(constr2);
+            con.Open();
+            MySqlCommand cmd = new MySqlCommand("select * from withdrawal where wfst='" + txtStudyID.Text + "'", con);
+            dreader = cmd.ExecuteReader();
+            if (dreader.Read())
+            {
+                con.Close();
+                return true;
+            }
+            con.Close();
+            return false;
+        }
+
+
         public void showalert(string message)
         {
             string script = @"alert('" + message + "');";
@@ -141,101 +155,108 @@ namespace BVaccine
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             string visit = "v2";
-            string appdt = txtnxtdt.Text + txtnxttm.Text;
+            string appdt = txtnxtdt.Text + " " + txtnxttm.Text;
             string q9 = Q9.SelectedItem != null ? Q9.SelectedItem.Value : string.Empty;
             string q11 = Q11.SelectedItem != null ? Q11.SelectedItem.Value : string.Empty;
             string q14 = Q14.SelectedItem != null ? Q14.SelectedItem.Value : string.Empty;
             string q15 = Q15.SelectedItem != null ? Q15.SelectedItem.Value : string.Empty;
-            //if (txtq1dt.Text == "")
-            //{
-            //    showalert("Enter Date of Visit!");
-            //    txtq1dt.Focus();
-            //}
-            //else if (txtq2dt.Text == "")
-            //{
-            //    showalert("Enter Date of Visit!");
-            //    txtq2dt.Focus();
-            //}
 
-            //else if (txtq4.Text == "" || !(txtq4.Text == "1" || txtq4.Text == "2"))
-            //{
-            //    showalert("Enter Value!");
-            //    txtq4.Text = "";
-            //    txtq4.Focus();
-            //}
-            //else if (txtq5.Text == "" || !(txtq5.Text == "1" || txtq5.Text == "2"))
-            //{
-            //    showalert("Enter Value where 1 or 2 only!");
-            //    txtq5.Text = "";
-            //    txtq5.Focus();
-            //}
-            //else if (txtq5.Text == "1" && (txtq6.Text == "" || !(txtq6.Text == "1" || txtq6.Text == "2")))
-            //{
-            //    showalert("Enter Value where 1 or 2 only!");
-            //    txtq6.Text = "";
-            //    txtq6.Focus();
-            //}
-            //else if (txtq7.Text == "" || !(txtq7.Text == "1" || txtq7.Text == "2"))
-            //{
-            //    showalert("Enter Value where 1 or 2 only!");
-            //    txtq7.Text = "";
-            //    txtq7.Focus();
-            //}
-            //else if (txtq8.Text == "" || !(txtq8.Text == "1" || txtq8.Text == "2" || txtq8.Text == "3"))
-            //{
-            //    showalert("Enter Value where 1 or 2 or 3 only!");
-            //    txtq8.Text = "";
-            //    txtq8.Focus();
-            //}
-            //else if (txtq8.Text != "3" && (txtq9.Text == "" || !(txtq9.Text == "1" || txtq9.Text == "2" || txtq9.Text == "3")))
-            //{
-            //    showalert("Enter Value where 1 or 2 or 3 only!");
-            //    txtq9.Text = "";
-            //    txtq9.Focus();
-            //}
-            //else if (txtq9.Text == "3" && (txtq9x.Text == "" || txtq9x.Text.Length < 1))
-            //{
-            //    showalert("Enter Specify Value!");
-            //    txtq9x.Enabled = true;
-            //    txtq9x.Focus();
-            //}
-            //else if (txtq10.Text == "" || !(txtq10.Text == "1" || txtq10.Text == "2" || txtq10.Text == "3"))
-            //{
-            //    showalert("Enter Value where 1 or 2 or 3 only!");
-            //    txtq10.Text = "";
-            //    txtq10.Focus();
-            //}
-            //else if (txtq11.Text == "" || !(txtq11.Text == "1" || txtq11.Text == "2" || txtq11.Text == "3"))
-            //{
-            //    showalert("Enter Value where 1 or 2 or 3 only!");
-            //    txtq11.Text = "";
-            //    txtq11.Focus();
-            //}
-            //else if (txtq12dt.Text == "")
-            //{
-            //    showalert("Enter Date of BLOOD COLLECTION!");
-            //    txtq12dt.Focus();
-            //}
-            //else if (txtq13t.Text == "")
-            //{
-            //    showalert("Enter Time of collection!");
-            //    txtq13t.Focus();
-            //}
-            //else if (txtq14.Text == "" || !(txtq14.Text == "1" || txtq14.Text == "2"))
-            //{
-            //    showalert("Enter Value where 1 or 2 only!");
-            //    txtq14.Text = "";
-            //    txtq14.Focus();
-            //}
-            //else if (txtq15.Text == "" || !(txtq15.Text == "1" || txtq15.Text == "2"))
-            //{
-            //    showalert("Enter Value where 1 or 2 only!");
-            //    txtq15.Text = "";
-            //    txtq15.Focus();
-            //}
-           
-            //else
-            //{
+            DateTime DOV = DateTime.ParseExact(txtq2dt.Text, "dd-MM-yyyy", CultureInfo.InvariantCulture);
+            DateTime today = DateTime.ParseExact(RangeValidator2.MaximumValue, "dd-MM-yyyy", CultureInfo.InvariantCulture);
+
+            if (txtq2dt.Text == "" || (DOV > today))
+            {
+                showalert("Enter correct Date of Visit!");
+                txtq2dt.Focus();
+            }
+
+            else if (Q4.SelectedItem == null)
+            {
+                showalert("Select Any option");
+                Q4.Focus();
+            }
+            else if (Q5.SelectedItem == null)
+            {
+                showalert("Select Any option");
+                Q5.Focus();
+            }
+            else if (Q5.SelectedIndex == 1 && Q6.SelectedIndex == 0)
+            {
+                showalert("Cannot Select Yes if the child has never been hospitalized");
+                Q6.Focus();
+            }
+            else if (Q6.SelectedItem == null)
+            {
+                showalert("Select Any option");                
+                Q6.Focus();
+            }            
+            else if (Q7.SelectedItem == null)
+            {
+                showalert("Select Any option");
+                Q7.Focus();
+            }
+            else if (Q8.SelectedItem == null)
+            {
+                showalert("Select Any option");
+                Q8.Focus();
+            }
+            else if ((Q8.SelectedIndex == 0 || Q8.SelectedIndex == 1) && Q9.SelectedItem == null)
+            {
+                showalert("Select Any option");
+                Q9.Focus();
+            }
+            else if (Q9.SelectedIndex == 2 && txtq9x.Text == "")
+            {
+                showalert("Please Specify other");
+                txtq9x.Focus();
+            }
+            else if (Q10.SelectedItem == null)
+            {
+                showalert("Select Any option");
+                Q10.Focus();
+            }
+            else if (Q10.SelectedIndex == 0 && Q11.SelectedItem == null)
+            {
+                showalert("Select Any option");
+                Q11.Focus();
+            }
+            else if (Q10.SelectedIndex == 0 && txtq12dt.Text == "")
+            {
+                showalert("Enter Date of Blood Collection!");
+                txtq12dt.Focus();
+            }
+            else if (Q10.SelectedIndex == 0 && txtq13t.Text == "")
+            {
+                showalert("Enter Time of collection!");
+                txtq13t.Focus();
+            }
+            else if (Q10.SelectedIndex == 0 && Q14.SelectedItem == null)
+            {
+                showalert("Select Any option");
+                Q14.Focus();
+            }
+            else if (Q10.SelectedIndex == 0 && Q15.SelectedItem == null)
+            {
+                showalert("Select Any option");
+                Q15.Focus();
+            }
+            else if (Q10.SelectedIndex == 0 && (txtq16.Text == "" || txtq16.Text.Length < 9))
+            {
+                showalert("Enter correct sample number!");
+                txtq16.Focus();
+            }
+            else if (txtnxtdt.Text == "")
+            {
+                showalert("Enter Next Appointement date");
+                txtnxtdt.Focus();
+            }
+            else if (txtnxttm.Text == "")
+            {
+                showalert("Enter Appointement Time");
+                txtnxttm.Focus();
+            }
+            else
+            {
                 try
                 {
                     MySqlConnection con = new MySqlConnection(constr2);
@@ -244,8 +265,8 @@ namespace BVaccine
                     //    "values ('" + txtStudyID.Text.ToUpper() + "','" + txtDSSID.Text.ToUpper() + "','" + visit + "','" + txtq1dt.Text + "','" + txtq2dt.Text + "','" + rdobtn.SelectedItem.Value + "','" + Q4.SelectedItem.Value + "', " +
                     //    "'" + Q5.SelectedItem.Value + "','" + Q6.SelectedItem.Value + "','" + Q7.SelectedItem.Value + "','" + Q8.SelectedItem.Value + "','" + q9 + "','" + txtq9x.Text.ToUpper() + "')", con);
                     //    "'" + Q11.SelectedItem.Value + "','" + txtq12dt.Text + "','" + txtq13t.Text + "','" + Q14.SelectedItem.Value + "','" + Q15.SelectedItem.Value + "','" + txtq16.Text.ToUpper() + "', '" + appdt + "', '" + DateTime.Now.ToString("dd/MM/yyyy hh:mm tt") + "')", con);
-                    MySqlCommand cmd = new MySqlCommand("insert into visit2(studyid,dssid, formtype, csv01, csv02,rn02, hb01, hb02, hb03,hb04, hb05, hb06, hb0688x, bl01, bl02, bl03, bl04, bl05, bl06, bl07, nextapp, formdate)" +
-                        "values ('" + txtStudyID.Text.ToUpper() + "','" + txtDSSID.Text.ToUpper() + "','" + visit + "','" + txtq1dt.Text + "','" + txtq2dt.Text + "','" + rdobtn.SelectedItem.Value + "','" + Q4.SelectedItem.Value + "', " +
+                    MySqlCommand cmd = new MySqlCommand("insert into visit2(studyid,dssid, formtype, csv01, csv02, hb01, hb02, hb03,hb04, hb05, hb06, hb0688x, bl01, bl02, bl03, bl04, bl05, bl06, bl07, nextapp, formdate)" +
+                        "values ('" + txtStudyID.Text.ToUpper() + "','" + txtDSSID.Text.ToUpper() + "','" + visit + "','" + txtq1dt.Text + "','" + txtq2dt.Text + "','" + Q4.SelectedItem.Value + "', " +
                         "'" + Q5.SelectedItem.Value + "','" + Q6.SelectedItem.Value + "','" + Q7.SelectedItem.Value + "','" + Q8.SelectedItem.Value + "','" + q9 + "','" + txtq9x.Text.ToUpper() + "','" + Q10.SelectedItem.Value + "', " +
                         "'" + q11 + "','" + txtq12dt.Text + "','" + txtq13t.Text + "','" + q14 + "','" + q15 + "','" + txtq16.Text + "', '" + appdt + "', '" + DateTime.Now.ToString("dd/MM/yyyy hh:mm tt") + "')", con);
                     cmd.ExecuteNonQuery();
@@ -256,7 +277,7 @@ namespace BVaccine
                 {
                     showalert(ex.Message);
                 }
-            //}
+            }
         }
     }
 }

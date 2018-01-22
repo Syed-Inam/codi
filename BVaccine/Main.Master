@@ -60,12 +60,15 @@
             color: black;
         }
 
-
         .txtbxRd {
             border-radius: 2px;
             border: 2px solid #A2DED0;
             padding: 0px;
             height: 26px;
+        }
+
+        .txtboxx {
+            color: black;
         }
     </style>
      <script type="text/javascript">
@@ -161,9 +164,9 @@
                                         <ul class="dropdown-menu">
                                             <li runat="server" id="V2"><a href="visit2.aspx">Second Visit</a></li>
                                             <li runat="server" id="V3a"><a href="visit3a.aspx">Third Visit(9 months)</a></li>
-                                            <li runat="server" id="V3b"><a href="visit2.aspx">Third Visit(21 months)</a></li>
-                                            <li runat="server" id="V4"><a href="visit2.aspx">Fourth Visit</a></li>
-                                            <li runat="server" id="V5"><a href="visit2.aspx">Fifth Visit</a></li>
+                                            <li runat="server" id="V3b"><a href="visit3b.aspx">Third Visit(21 months)</a></li>
+                                            <li runat="server" id="V4"><a href="visit4.aspx">Fourth Visit</a></li>
+                                            <li runat="server" id="V5"><a href="visit5.aspx">Fifth Visit</a></li>
                                         </ul>
                                     </li>
                                 </ul>

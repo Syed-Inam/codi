@@ -11,19 +11,19 @@
             var label = rb.getElementsByTagName("label");
 
             if (id == "Q5") {
-                for (var i = 0; i < radio.length; i++) {
-                    if (radio[1].checked) {
-                        //alert("SelectedText: " + label[i].innerHTML
-                        //    + "\nSelectedValue: " + radio[i].value);
-                        document.getElementById("row6").style.display = 'none';
-                        UncheckedRadio("Q6");
-                        break;
-                    }
-                    else {
-                        document.getElementById("row6").style.display = 'table-row';
-                    }
+                //for (var i = 0; i < radio.length; i++) {
+                //    if (radio[1].checked) {
+                //        //alert("SelectedText: " + label[i].innerHTML
+                //        //    + "\nSelectedValue: " + radio[i].value);
+                //        document.getElementById("row6").style.display = 'none';
+                //        UncheckedRadio("Q6");
+                //        break;
+                //    }
+                //    else {
+                //        document.getElementById("row6").style.display = 'table-row';
+                //    }
 
-                }
+                //}
             }
 
             else if (id == "Q8") {
@@ -107,21 +107,22 @@
                 <tr style="height: 60px; font-family: Calibri; font-size: 19px; color: white;">
                     <td style="font-weight: 400">Study ID</td>
                     <td style="text-align: left; padding-left: 15px">
-                        <asp:TextBox ID="txtStudyID" Width="150px"  Style="text-transform: uppercase;" placeholder="study id" Height="31px" runat="server" MaxLength="7" ForeColor="Black"></asp:TextBox></td>
+                        <asp:TextBox ID="txtStudyID" Width="150px"  Style="text-transform: uppercase;" placeholder="study id" Height="31px" runat="server"  ForeColor="Black"></asp:TextBox>
+                        <cc1:MaskedEditExtender ID="MaskedEditExtender12" runat="server" Mask="codi99?-9999" MaskType="None" TargetControlID="txtStudyID" ClearMaskOnLostFocus="false" />
+                    </td>
 
                     <td style="font-weight: 400;">DSSID</td>
                     <td style="text-align: left; padding-left: 15px">
-                        <asp:TextBox ID="txtDSSID" runat="server"  Style="text-transform: uppercase;" MaxLength="12" Height="31px" placeholder="dssid" ForeColor="Black"></asp:TextBox></td>
-                    
+                        <asp:TextBox ID="txtDSSID" runat="server"  Style="text-transform: uppercase;" MaxLength="12" Height="31px" placeholder="dssid" ForeColor="Black"></asp:TextBox></td> 
+                                       
                     <td>
-                        <asp:Button ID="btnchk" class="btn-primary btn-sm" Height="37px" Width="80px" BackColor="#C5EFF7" ForeColor="#013243" Font-Size="Medium" Font-Bold="true" runat="server" Text="Check" />
-
+                        <asp:Button ID="btnchk" class="btn-primary btn-sm" Height="37px" Width="80px" BackColor="#C5EFF7" ForeColor="#013243" Font-Size="Medium" Font-Bold="true" runat="server" Text="Check" OnClick="checkButton_Click" />
                     </td>
                 </tr>
             </table>
 
 
-            <asp:Panel ID="formPanel" runat="server" Visible="true">
+            <asp:Panel ID="formPanel" runat="server" Visible="false">
 
                 <h4 style="text-align: left; margin-top: 60px;margin-left:60px;"><b>Comparison of duration of immunity following IPV and fIPV: A community based randomized Controlled trial in Pakistan  </b></h4>
 
@@ -131,8 +132,8 @@
                         <td class="tdStyle"><b>1.</b> EXPECTED DATE OF VISIT:</td>
                         <td colspan="3" class="tdStyle tdText">
                             <asp:TextBox ID="txtq1dt" runat="server" CssClass="txtbxRd" placeholder="dd-mm-yyyy" Width="150px"></asp:TextBox>
-                            <cc1:MaskedEditExtender ID="MaskedEditExtender1" runat="server" Mask="99-99-9999" MaskType="Date" TargetControlID="txtq1dt" />
-                            <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtq1dt" ErrorMessage="*Invalid Date" Font-Size="Smaller" ForeColor="Red" MaximumValue="01/01/2020" MinimumValue="01/01/2010" Type="Date"></asp:RangeValidator>                            
+                            <%--<cc1:MaskedEditExtender ID="MaskedEditExtender1" runat="server" Mask="99-99-9999" MaskType="Date" TargetControlID="txtq1dt" />--%>
+                            <%--<asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtq1dt" ErrorMessage="*Invalid Date" Font-Size="Smaller" ForeColor="Red" MaximumValue="01/01/2020" MinimumValue="01/01/2010" Type="Date"></asp:RangeValidator>--%>                            
                         </td>
                     </tr>
                     <tr class="thStyle">
@@ -146,10 +147,10 @@
                     <tr class="thStyle">
                         <td class="tdStyle"><b>3.</b> STUDY RANDOMIZATION ARM:</td>
                         <td colspan="3" class="tdStyle tdText">
-                            <asp:RadioButtonList runat="server" ID="rdobtn">
-                                <asp:ListItem Value="A" Text="A"></asp:ListItem>
-                                <asp:ListItem Value="B" Text="B"></asp:ListItem>
-                                <asp:ListItem Value="C" Text="C"></asp:ListItem>
+                            <asp:RadioButtonList runat="server" ID="rdobtn" RepeatDirection="Horizontal">
+                                <asp:ListItem Value="A" Text="A&emsp;&emsp;"></asp:ListItem>
+                                <asp:ListItem Value="B" Text="B&emsp;&emsp;"></asp:ListItem>
+                                <asp:ListItem Value="C" Text="C&emsp;&emsp;"></asp:ListItem>
                                 <asp:ListItem Value="D" Text="D"></asp:ListItem>
                             </asp:RadioButtonList>
                             <%--<asp:TextBox ID="txtq3" runat="server" MaxLength="5" placeholder="0000" onkeypress="return OnlyNumeric(event)" CssClass="txtbxRd" Width="150px"></asp:TextBox>--%>
@@ -180,7 +181,7 @@
                         <td colspan="3" class="tdStyle tdText">
                             <asp:RadioButtonList runat="server" ID="Q6" RepeatDirection="Horizontal" ClientIDMode="Static">
                                 <asp:ListItem Value="1" Text="YES&emsp;&emsp;"></asp:ListItem>
-                                <asp:ListItem Value="2" Text="NO" ></asp:ListItem>
+                                <asp:ListItem Value="2" Text="NO"></asp:ListItem>
                             </asp:RadioButtonList>
                             <%--<asp:TextBox ID="txtq6" runat="server" MaxLength="1" onkeypress="return OnlyNumeric(event)" ClientIDMode="Static" CssClass="txtbxRd" placeholder="1 or 2" Width="150px"></asp:TextBox>--%>
                         </td>
@@ -205,14 +206,15 @@
                             </asp:RadioButtonList>                            
                         </td>
                     </tr>
-                    <tr class="thStyle" id="rdo9" style="display:none">
+                    <tr class="thStyle" id="rdo9">
                         <td class="tdStyle"><b>9.</b> IF PARTIAL BREAST FEEDING, WHAT TYPE OF MILK OR<br /> OTHER THINGS IS CHILD RECEIVING? </td>
                         <td colspan="3" class="tdStyle tdText">
                             <asp:RadioButtonList runat="server" onclick="GetSelectedItem('Q9')" ClientIDMode="Static" id="Q9">
                                 <asp:ListItem Text="FORMULA MILK" Value="1"></asp:ListItem>
                                 <asp:ListItem Text="COW MILK" Value="2"></asp:ListItem>
-                                <asp:ListItem Text="OTHER" Value="3"></asp:ListItem>
-                            </asp:RadioButtonList>                           
+                                <asp:ListItem Text="OTHER" Value="88"></asp:ListItem>
+                            </asp:RadioButtonList>
+                            
                         </td>
                     </tr>
                     <tr class="thStyle" id="Q9x" style="display:none">
@@ -288,7 +290,7 @@
                         <td colspan="3" class="tdStyle tdText">
                             <asp:TextBox ID="txtnxtdt" runat="server" CssClass="txtbxRd" placeholder="dd-mm-yyyy" Width="150px"></asp:TextBox>
                             <cc1:MaskedEditExtender ID="MaskedEditExtender5" runat="server" Mask="99-99-9999" MaskType="Date" TargetControlID="txtnxtdt" />
-                            <asp:RangeValidator ID="RangeValidator4" runat="server" ControlToValidate="txtnxtdt" ErrorMessage="*Invalid Error" Font-Size="Smaller" ForeColor="Red" MaximumValue="01/01/2030" MinimumValue="01/01/2000" Type="Date"></asp:RangeValidator>
+                            <asp:RangeValidator ID="RangeValidator4" runat="server" ControlToValidate="txtnxtdt" ErrorMessage="*Invalid Date" Font-Size="Smaller" ForeColor="Red" MaximumValue="01/01/2030" MinimumValue="01/01/2000" Type="Date"></asp:RangeValidator>
 
                         </td>
                     </tr>
@@ -303,7 +305,7 @@
                 </table>
                 <br />
                 <br />
-                <asp:Button ID="s01next" class="btn-primary btn-lg btn"  Style="width: 100px" runat="server" Text="Submit" BackColor="#2574A9"  />
+                <asp:Button ID="s01next" class="btn-primary btn-lg btn"  Style="width: 100px" runat="server" Text="Submit" BackColor="#2574A9" OnClick="btnSubmit_Click" />
 
             </asp:Panel>
 

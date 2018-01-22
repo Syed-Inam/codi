@@ -12,6 +12,13 @@ namespace BVaccine
         protected void Page_Load(object sender, EventArgs e)
         {
             Session["WebForm"] = "home";
+            if (Session["User"] != null)
+            {
+                //Label user = (Label)Master.FindControl("lbl");
+                //user.Text = Convert.ToString(Session["User"]);
+            }
+            else
+                Response.Redirect("login.aspx");
         }
     }
 }

@@ -94,22 +94,13 @@ namespace BVaccine {
         protected global::System.Web.UI.WebControls.RangeValidator RangeValidator1;
         
         /// <summary>
-        /// CompareDOV1 control.
+        /// txtbx4_1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CompareDOV1;
-        
-        /// <summary>
-        /// txtbx4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtbx4;
+        protected global::System.Web.UI.WebControls.TextBox txtbx4_1;
         
         /// <summary>
         /// ResizableControlExtender1 control.
@@ -121,13 +112,85 @@ namespace BVaccine {
         protected global::AjaxControlToolkit.ResizableControlExtender ResizableControlExtender1;
         
         /// <summary>
-        /// txtbx5 control.
+        /// txtbx4_2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtbx5;
+        protected global::System.Web.UI.WebControls.TextBox txtbx4_2;
+        
+        /// <summary>
+        /// ResizableControlExtender4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ResizableControlExtender ResizableControlExtender4;
+        
+        /// <summary>
+        /// txtbx4_3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtbx4_3;
+        
+        /// <summary>
+        /// ResizableControlExtender5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ResizableControlExtender ResizableControlExtender5;
+        
+        /// <summary>
+        /// txtbx4_4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtbx4_4;
+        
+        /// <summary>
+        /// ResizableControlExtender6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ResizableControlExtender ResizableControlExtender6;
+        
+        /// <summary>
+        /// txtbx4_5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtbx4_5;
+        
+        /// <summary>
+        /// ResizableControlExtender7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ResizableControlExtender ResizableControlExtender7;
+        
+        /// <summary>
+        /// txtbx5_1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtbx5_1;
         
         /// <summary>
         /// ResizableControlExtender2 control.
@@ -137,6 +200,78 @@ namespace BVaccine {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.ResizableControlExtender ResizableControlExtender2;
+        
+        /// <summary>
+        /// txtbx5_2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtbx5_2;
+        
+        /// <summary>
+        /// ResizableControlExtender8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ResizableControlExtender ResizableControlExtender8;
+        
+        /// <summary>
+        /// txtbx5_3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtbx5_3;
+        
+        /// <summary>
+        /// ResizableControlExtender9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ResizableControlExtender ResizableControlExtender9;
+        
+        /// <summary>
+        /// txtbx5_4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtbx5_4;
+        
+        /// <summary>
+        /// ResizableControlExtender10 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ResizableControlExtender ResizableControlExtender10;
+        
+        /// <summary>
+        /// txtbx5_5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtbx5_5;
+        
+        /// <summary>
+        /// ResizableControlExtender11 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ResizableControlExtender ResizableControlExtender11;
         
         /// <summary>
         /// Rdbtn1 control.
@@ -166,13 +301,13 @@ namespace BVaccine {
         protected global::System.Web.UI.WebControls.CheckBoxList chkbx;
         
         /// <summary>
-        /// txtbx6 control.
+        /// txtbx6_1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtbx6;
+        protected global::System.Web.UI.WebControls.TextBox txtbx6_1;
         
         /// <summary>
         /// ResizableControlExtender3 control.
@@ -182,6 +317,78 @@ namespace BVaccine {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.ResizableControlExtender ResizableControlExtender3;
+        
+        /// <summary>
+        /// txtbx6_2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtbx6_2;
+        
+        /// <summary>
+        /// ResizableControlExtender12 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ResizableControlExtender ResizableControlExtender12;
+        
+        /// <summary>
+        /// txtbx6_3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtbx6_3;
+        
+        /// <summary>
+        /// ResizableControlExtender13 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ResizableControlExtender ResizableControlExtender13;
+        
+        /// <summary>
+        /// txtbx6_4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtbx6_4;
+        
+        /// <summary>
+        /// ResizableControlExtender14 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ResizableControlExtender ResizableControlExtender14;
+        
+        /// <summary>
+        /// txtbx6_5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtbx6_5;
+        
+        /// <summary>
+        /// ResizableControlExtender15 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ResizableControlExtender ResizableControlExtender15;
         
         /// <summary>
         /// txtbx7 control.
@@ -200,6 +407,15 @@ namespace BVaccine {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtbx7dt;
+        
+        /// <summary>
+        /// RangeValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator RangeValidator2;
         
         /// <summary>
         /// MaskedEditExtender5 control.
@@ -229,6 +445,15 @@ namespace BVaccine {
         protected global::System.Web.UI.WebControls.TextBox txtbx8dt;
         
         /// <summary>
+        /// RangeValidator3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator RangeValidator3;
+        
+        /// <summary>
         /// MaskedEditExtender4 control.
         /// </summary>
         /// <remarks>
@@ -256,6 +481,15 @@ namespace BVaccine {
         protected global::System.Web.UI.WebControls.TextBox txtbxdt1;
         
         /// <summary>
+        /// RangeValidator4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator RangeValidator4;
+        
+        /// <summary>
         /// MaskedEditExtender2 control.
         /// </summary>
         /// <remarks>
@@ -281,6 +515,15 @@ namespace BVaccine {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtbxdt2;
+        
+        /// <summary>
+        /// RangeValidator5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator RangeValidator5;
         
         /// <summary>
         /// MaskedEditExtender3 control.

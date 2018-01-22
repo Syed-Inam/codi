@@ -40,6 +40,15 @@ namespace BVaccine {
         protected global::System.Web.UI.WebControls.TextBox txtbxid;
         
         /// <summary>
+        /// MaskedEditExtender12 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.MaskedEditExtender MaskedEditExtender12;
+        
+        /// <summary>
         /// txtbxst control.
         /// </summary>
         /// <remarks>
@@ -74,15 +83,6 @@ namespace BVaccine {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RangeValidator RangeValidator1;
-        
-        /// <summary>
-        /// CompareDOV1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CompareDOV1;
         
         /// <summary>
         /// txtbx2 control.
@@ -121,6 +121,15 @@ namespace BVaccine {
         protected global::AjaxControlToolkit.MaskedEditExtender MaskedEditExtender2;
         
         /// <summary>
+        /// CompareDOV1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CompareDOV1;
+        
+        /// <summary>
         /// txtbx5 control.
         /// </summary>
         /// <remarks>
@@ -137,6 +146,15 @@ namespace BVaccine {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.MaskedEditExtender MaskedEditExtender3;
+        
+        /// <summary>
+        /// Compare control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator Compare;
         
         /// <summary>
         /// txtbx6 control.

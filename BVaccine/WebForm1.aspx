@@ -10,8 +10,8 @@
         <div class="section-title container">
 
 
-            <h1 style="color: white; margin-top: 100px; text-align:center">Comparison Of Duration of Immunity following IPV and fIPV</h1><br />
-            <h3 style="color: #c0d42f; text-align: center">A community based randomized Controlled trial in Pakistan</h3>
+            <h1 style="color: white; margin-top: 100px; text-align:center">Comparison Of Duration of Immunity following IPV and fIPV</h1>
+            <h2 style="color: #c0d42f; text-align: center">A community based randomized Controlled trial in Pakistan</h2>
         </div>
 
     </div>
@@ -27,7 +27,7 @@
             </div>
             <div class="row" >
                 <div class="col-md-12">
-                    <div class="footer-copyright">&copy; Copyright at <a href="https://www.aku.edu/Pages/home.aspx">The Aga Khan University (AKU)</a>, All rights reserved. 2017-18  &nbsp&nbsp  || &nbsp&nbsp  App. Developed by M.Kashif</div>
+                    <div class="footer-copyright">&copy; Copyright at <a href="https://www.aku.edu/Pages/home.aspx">The Aga Khan University (AKU)</a>, All rights reserved. 2017-18  </div>
                 </div>
             </div>
         </div>

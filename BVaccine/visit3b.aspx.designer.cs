@@ -10,7 +10,7 @@
 namespace BVaccine {
     
     
-    public partial class visit3a {
+    public partial class visit3b {
         
         /// <summary>
         /// ScriptManger1 control.
@@ -254,6 +254,15 @@ namespace BVaccine {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList Q15;
+        
+        /// <summary>
+        /// txtq16 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtq16;
         
         /// <summary>
         /// txtnxtdt control.
