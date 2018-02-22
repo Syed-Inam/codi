@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Main.Master" CodeBehind="withdrawal.aspx.cs" Inherits="BVaccine.withdrawal" Culture="en-GB" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Main.Master" CodeBehind="withdrawal.aspx.cs" Inherits="BVaccine.withdrawal" Culture="en-GB" %> 
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -34,12 +34,12 @@
     <asp:ScriptManager ID="ScriptManger1" runat="Server"></asp:ScriptManager>
 
     <div style="text-align: center; margin-top: 30px;">
-        <h3 style="text-align: center; margin-top: 60px"><b>Comparison of duration of immunity following IPV and fIPV: <br />A community based randomized Controlled trial in Pakistan  </b></h3>
+        <h3 style="text-align: center; margin-top: 40px"><b>Comparison of duration of immunity following IPV and fIPV: <br />A community based randomized Controlled trial in Pakistan  </b></h3>
         <br />
 
         <asp:Panel ID="formPanel" runat="server" DefaultButton="submitbtn">
             <div class="section-title container" style="width: auto;">
-                <h2 style="text-align: center; margin-top: 30px" class="auto-style5">WITHDRAWAL FORM</h2>
+                <h2 style="text-align: center; margin-top: 20px" class="auto-style5">WITHDRAWAL FORM</h2>
                 <br />
                 <div class="divTable" style="text-align: left; margin: auto; font-size: small; background-color: #EDEDED; font-family: Tahoma; width:80%">
                     <div class="divTableBody">
@@ -58,9 +58,9 @@
                         <div class="divTableRow">
                             <div class="divTableCell"><b>1. </b> Date of withdrawal</div>
                             <div class="divTableCell">
-                                <asp:TextBox ID="txtbx1" CssClass="txtboxx" ClientIDMode="Static" runat="server" placeholder="dd-mm-yyyy" Format="dd-mm-yyyy"></asp:TextBox>
-                                <cc1:MaskedEditExtender ID="MaskedEditExtender1" runat="server" Mask="99-99-9999" MaskType="Date" TargetControlID="txtbx1" />
-                                <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtbx1" ErrorMessage="*Date Error" Font-Size="Smaller" ForeColor="Red" MaximumValue="01/01/2030" MinimumValue="01/01/2014" Type="Date"></asp:RangeValidator>
+                                <asp:TextBox ID="txtbx1" CssClass="txtboxx" ClientIDMode="Static" runat="server" placeholder="dd/mm/yyyy" Format="dd/mm/yyyy"></asp:TextBox>
+                                <cc1:MaskedEditExtender ID="MaskedEditExtender1" runat="server" Mask="99/99/9999" MaskType="Date" TargetControlID="txtbx1" />
+                                <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtbx1" ErrorMessage="*Date Error" Font-Size="Smaller" ForeColor="Red" MaximumValue="01-01-2030" MinimumValue="01-01-2000" Type="Date"></asp:RangeValidator>
                                 
                             </div>
                         </div>
@@ -81,16 +81,16 @@
                         <div class="divTableRow">
                             <div class="divTableCell"><b>4. </b>Date of Birth </div> 
                             <div class="divTableCell">
-                                <asp:TextBox ID="txtbx4" CssClass="txtboxx" ClientIDMode="Static" runat="server" placeholder="dd-mm-yyyy" Format="dd-mm-yyyy"></asp:TextBox>
-                                <cc1:MaskedEditExtender ID="MaskedEditExtender2" runat="server" Mask="99-99-9999" MaskType="Date" TargetControlID="txtbx4" /> 
+                                <asp:TextBox ID="txtbx4" CssClass="txtboxx" ClientIDMode="Static" runat="server" placeholder="dd/mm/yyyy" Format="dd/mm/yyyy"></asp:TextBox>
+                                <cc1:MaskedEditExtender ID="MaskedEditExtender2" runat="server" Mask="99/99/9999" MaskType="Date" TargetControlID="txtbx4" /> 
                                 <asp:CompareValidator ID="CompareDOV1" runat="server" ControlToValidate="txtbx4" ControlToCompare="txtbx1" Operator="LessThan" Type="Date" ErrorMessage="*Invalid Date" Font-Size="Smaller" ForeColor="Red"></asp:CompareValidator>                             
                             </div>
                         </div>
                         <div class="divTableRow">
                                 <div class="divTableCell"><b>5. </b>Date of last study visit completed </div> 
                             <div class="divTableCell">
-                                <asp:TextBox ID="txtbx5" CssClass="txtboxx" ClientIDMode="Static" runat="server" placeholder="dd-mm-yyyy" Format="dd-mm-yyyy"></asp:TextBox>
-                                <cc1:MaskedEditExtender ID="MaskedEditExtender3" runat="server" Mask="99-99-9999" MaskType="Date" TargetControlID="txtbx5" />  
+                                <asp:TextBox ID="txtbx5" CssClass="txtboxx" ClientIDMode="Static" runat="server" placeholder="dd/mm/yyyy" Format="dd/mm/yyyy"></asp:TextBox>
+                                <cc1:MaskedEditExtender ID="MaskedEditExtender3" runat="server" Mask="99/99/9999" MaskType="Date" TargetControlID="txtbx5" />  
                                 <asp:CompareValidator ID="Compare" runat="server" ControlToValidate="txtbx5" ControlToCompare="txtbx1" Operator="LessThan" Type="Date" ErrorMessage="*Invalid Date" Font-Size="Smaller" ForeColor="Red"></asp:CompareValidator>                            
                             </div>                                                      
                         </div>
@@ -138,11 +138,11 @@
                 <div class="divTableRow">
                     <div class="divTableCell"><strong>Site Supervisor</strong></div>
                     <div class="divTableCell">
-                    <asp:TextBox ID="sup_nm" CssClass="txtboxx" runat="server" placeholder="cade" MaxLength="8" ClientIDMode="Static"></asp:TextBox>                        
+                    <asp:TextBox ID="sup_nm" CssClass="txtboxx" runat="server" placeholder="cade" MaxLength="8" ClientIDMsode="Static"></asp:TextBox>                        
                     </div>
                     <div class="divTableCell">
-                        <asp:TextBox ID="sup_dt" CssClass="txtboxx" runat="server" placeholder="dd-mm-yyyy" onkeypress="return OnlyNumeric(event)" ClientIDMode="Static"></asp:TextBox>
-                        <cc1:MaskedEditExtender ID="MaskedEditExtender10" runat="server" Mask="99-99-9999" MaskType="Date" TargetControlID="sup_dt" />
+                        <asp:TextBox ID="sup_dt" CssClass="txtboxx" runat="server" placeholder="dd/mm/yyyy" onkeypress="return OnlyNumeric(event)" ClientIDMode="Static"></asp:TextBox>
+                        <cc1:MaskedEditExtender ID="MaskedEditExtender10" runat="server" Mask="99/99/9999" MaskType="Date" TargetControlID="sup_dt" />
                     </div>
                 </div>
                 <div class="divTableRow">
@@ -151,8 +151,8 @@
                     <asp:TextBox ID="inv_nm" CssClass="txtboxx" runat="server" placeholder="code" MaxLength="8" ClientIDMode="Static"></asp:TextBox>                        
                     </div>
                     <div class="divTableCell">
-                        <asp:TextBox ID="inv_dt" CssClass="txtboxx" runat="server" placeholder="dd-mm-yyyy" onkeypress="return OnlyNumeric(event)" ClientIDMode="Static"></asp:TextBox>
-                        <cc1:MaskedEditExtender ID="MaskedEditExtender9" runat="server" Mask="99-99-9999" MaskType="Date" TargetControlID="inv_dt" />
+                        <asp:TextBox ID="inv_dt" CssClass="txtboxx" runat="server" placeholder="dd/mm/yyyy"  ClientIDMode="Static"></asp:TextBox>
+                        <cc1:MaskedEditExtender ID="MaskedEditExtender9" runat="server" Mask="99/99/9999" MaskType="Date" CultureName="en-nz" TargetControlID="inv_dt" />
                     </div>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="visit2.aspx.cs" Inherits="BVaccine.WebForm2" Culture="en-GB" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="visit2.aspx.cs" Inherits="BVaccine.WebForm2" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
@@ -100,7 +100,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <asp:ScriptManager ID="ScriptManger1" runat="Server"></asp:ScriptManager>
-
+    <div style="text-align: center; margin-top: 30px;">
+        <h3 style="text-align: center; margin-top: 40px"><b>Comparison of duration of immunity following IPV and fIPV: <br />A community based randomized Controlled trial in Pakistan  </b></h3>
 
     <div style="text-align: center; margin-top: 50px; margin-bottom: 50px">
         <h2><b>IPV and fIPV</b></h2>
@@ -298,8 +299,8 @@
                         <td colspan="3" class="tdStyle tdText">
                             <asp:TextBox ID="txtnxtdt" runat="server" CssClass="txtbxRd" placeholder="dd-mm-yyyy" Width="150px"></asp:TextBox>
                             <cc1:MaskedEditExtender ID="MaskedEditExtender5" runat="server" Mask="99-99-9999" MaskType="Date" TargetControlID="txtnxtdt" />
-                            <asp:RangeValidator ID="RangeValidator4" runat="server" ControlToValidate="txtnxtdt" ErrorMessage="*Invalid Date" Font-Size="Smaller" ForeColor="Red" MaximumValue="01/01/2030" MinimumValue="01/01/2000" Type="Date"></asp:RangeValidator>
-
+                            <%--<asp:RangeValidator ID="RangeValidator4" runat="server" ControlToValidate="txtnxtdt" ErrorMessage="*Invalid Date" Font-Size="Smaller" ForeColor="Red" MaximumValue="01/01/2030" MinimumValue="01/01/2015" Type="Date"></asp:RangeValidator>--%>
+                            <%--<asp:CompareValidator runat="server" ControlToValidate="txtnxtdt" ControlToCompare="txtq1dt" Operator="GreaterThan" ErrorMessage="*Invalid Date" Font-Size="Smaller" ForeColor="Red"></asp:CompareValidator>--%>
                         </td>
                     </tr>
                     <tr class="thStyle">
@@ -320,5 +321,5 @@
 
         </div>
     </div>
-
+    </div>
 </asp:Content>

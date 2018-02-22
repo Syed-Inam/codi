@@ -66,10 +66,10 @@ namespace BVaccine
             {
                 MySqlConnection con = new MySqlConnection(constr2);
                 con.Open();
-                MySqlCommand cmd = new MySqlCommand("insert into Protocol(pds,pdst, pda, pdb, pdca, pdcb, pdcc, pdcd, pdce, pdda, pddb, pddc, pddd, pdde, pde, pdf, pdirb_iec1, pdirb_iec2, pdirb_iec3, pdirb_iec4, pdga, pdgb, pdgc, pdgd, pdge, pdinv_cd, pdinv_dt, pdsi, pdsi_dt, pdsp, pdsp_dt, pdirb, pdirb_dt)" +
+                MySqlCommand cmd = new MySqlCommand("insert into Protocol(pds,pdst, pda, pdb, pdca, pdcb, pdcc, pdcd, pdce, pdda, pddb, pddc, pddd, pdde, pde, pdf, pdirb_iec1, pdirb_iec2, pdirb_iec3, pdirb_iec4, pdga, pdgb, pdgc, pdgd, pdge, pdinv_cd, pdinv_dt, pdsi, pdsi_dt, pdsp, pdsp_dt, pdirb, pdirb_dt, user, date_enter)" +
                     "values ('" + txtbx1.Text.ToUpper() + "','" + txtbx2.Text.ToUpper() + "', '" + txtbx2cd.Text.ToUpper() + "', '" + txtbx3.Text + "', '" + txtbx4_1.Text + "', '" + txtbx4_2.Text + "', '" + txtbx4_3.Text + "', '" + txtbx4_4.Text + "', '" + txtbx4_5.Text + "','" + txtbx5_1.Text + "','" + txtbx5_2.Text + "','" + txtbx5_3.Text + "','" + txtbx5_4.Text + "','" + txtbx5_5.Text + "', " +
                     "'" + Rdbtn1.SelectedItem.Value + "','" + Rdbtn2.SelectedItem.Value + "','" + Convert.ToInt32(chkbx.Items[0].Selected) + "','" + Convert.ToInt32(chkbx.Items[1].Selected) + "','" + Convert.ToInt32(chkbx.Items[2].Selected) + "','" + Convert.ToInt32(chkbx.Items[3].Selected) + "', '" + txtbx6_1.Text + "', '" + txtbx6_2.Text + "', '" + txtbx6_3.Text + "', '" + txtbx6_4.Text + "'," +
-                    "'" + txtbx6_5.Text + "','" + txtbx7.Text + "','" + txtbx7dt.Text + "','" + txtbx8.Text + "','" + txtbx8dt.Text + "','" + Convert.ToInt32(CheckBox1.Checked) + "','" + txtbxdt1.Text + "','" + Convert.ToInt32(CheckBox2.Checked) + "','" + txtbxdt2.Text + "' )", con);               
+                    "'" + txtbx6_5.Text + "','" + txtbx7.Text + "','" + txtbx7dt.Text + "','" + txtbx8.Text + "','" + txtbx8dt.Text + "','" + Convert.ToInt32(CheckBox1.Checked) + "','" + txtbxdt1.Text + "','" + Convert.ToInt32(CheckBox2.Checked) + "','" + txtbxdt2.Text + "','" + Convert.ToString(Session["User"]) + "', '" + DateTime.Now.ToString("dd-MM-yyyy hh:mm tt") + "' )", con);               
                 cmd.ExecuteNonQuery();
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "alerts", "javascript:alert('Submitted Successfully!');window.location.href='protocol.aspx';", true);
                 con.Close();

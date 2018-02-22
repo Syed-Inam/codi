@@ -19,29 +19,29 @@
 
         function input1(id) {
             var val = document.getElementById(id).value;
-            if (val != "" && !(val == 0 || val == 1)) {
-                alert('Invalid input value! \nThis field takes only 0 or 1 as input.');
+            if (val != "" && !(val == 0 || val == 1 || val == 9)) {
+                alert('Invalid input value! \nThis field takes only 0 / 1 or 9 if not know.');
                 document.getElementById(id).value = "";
             }
         }
         function input2(id) {
             var val = document.getElementById(id).value;
-            if (val != "" && !(val >= 0 && val <= 3)) {
-                alert('Invalid input value! \nThis field takes between 1 to 3 as input.');
+            if (val != "" && !(val >= 0 && val <= 3 || val == 9)) {
+                alert('Invalid input value! \nThis field takes between 1 to 3 or 9 if not know.');
                 document.getElementById(id).value = "";
             }
         }
         function input3(id) {
             var val = document.getElementById(id).value;
-            if (val != "" && !(val >= 1 && val <= 4)) {
-                alert('Invalid input value! \nThis field takes between 1 to 4 as input.');
+            if (val != "" && !(val >= 1 && val <= 4 || val == 9)) {
+                alert('Invalid input value! \nThis field takes between 1 to 4 or 9 if not know.');
                 document.getElementById(id).value = "";
             }
         }
         
         function isValidDate(id) {
             var dateString = document.getElementById(id).value;
-            var date_regex = /^([0]?[1-9]|[1|2][0-9]|[3][0|1])[./-]([0]?[1-9]|[1][0-2])[./-](201[6-9])$/;
+            var date_regex = /^([0]?[1-9]|[1|2][0-9]|[3][0|1])[./-]([0]?[1-9]|[1][0-2])[./-](20\d\d)$/;
             if (dateString != "__/__/____" && !(date_regex.test(dateString))) {
                     alert("Enter valid date");
                     document.getElementById(id).value = "";
@@ -73,18 +73,56 @@
             }
         }
 
+        function ongoing(id) {
+            if (document.getElementById(id) == aes1_d) {
+                if (document.getElementById(id).value == 1)
+                    document.getElementById('aes1_c').disabled = true;
+                else
+                    document.getElementById('aes1_c').disabled = false;
+            }
+            
+            else if (document.getElementById(id) == aes2_d) {
+                if (document.getElementById(id).value == 1)
+                    document.getElementById('aes2_c').disabled = true;
+                else
+                    document.getElementById('aes2_c').disabled = false;
+            }
+
+            else if (document.getElementById(id) == aes3_d) {
+                if (document.getElementById(id).value == 1)
+                    document.getElementById('aes3_c').disabled = true;
+                else
+                    document.getElementById('aes3_c').disabled = false;
+            }
+
+            else if (document.getElementById(id) == aes4_d) {
+                if (document.getElementById(id).value == 1)
+                    document.getElementById('aes4_c').disabled = true;
+                else
+                    document.getElementById('aes4_c').disabled = false;
+            }
+        }
+
+        function showmore(btn) {
+            var el = document.getElementById(btn).parentElement.parentElement;
+            el.nextElementSibling.style.display = "table-row";
+            document.getElementById(btn).style.display = "none";
+        }
+
     </script>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
     <asp:ScriptManager ID="ScriptManger1" runat="Server"></asp:ScriptManager>
 
-    <h1 style="margin-top: 60px; text-align:center">Adverse Event Report</h1>    
+    <div style="text-align: center; margin-top: 30px;">
+        <h3 style="text-align: center; margin-top: 40px"><b>Comparison of duration of immunity following IPV and fIPV: <br />A community based randomized Controlled trial in Pakistan  </b></h3>
+
+    <h1 style="margin-top: 40px; text-align:center">Adverse Event Report</h1>    
 
     <div class="section-title container" style="width: 50%; margin: 2% auto; border: 1px">
-        <div style="background-color: #b8b8b8; height: 50px; border-top-left-radius:5px; border-top-right-radius:5px">
-            <h2 style="text-align: center; margin-top: 10px; padding-top: 10px" class="auto-style5">Participant Data</h2>
+        <div style="background-color: #424a5d; height: 50px; border-top-left-radius:5px; border-top-right-radius:5px">
+            <h2 style="color: white;text-align: center; margin-top: 10px; padding-top: 10px";">Participant Data</h2>
             <br />
         </div>
         <div class="login-wrap form-horizontal" style="background-color: #d2d7d9; font-size:medium; padding-left:45px;padding-right:45px">
@@ -115,7 +153,7 @@
                     <div class="col-sm-8">
                         <asp:TextBox ID="aedob" runat="server" ClientIDMode="Static" class="form-control" placeholder="dd/MM/yyyy" onkeypress="return OnlyNumeric(event)" onblur="isValidDate('aedob')"></asp:TextBox>
                         <cc1:MaskedEditExtender ID="MaskedEditExtender2" runat="server" Mask="99/99/9999" MaskType="Date" TargetControlID="aedob" />
-                       <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="aedob" ErrorMessage="*Invalid Date" Font-Size="Smaller" ForeColor="Red" MaximumValue="01/01/2020" MinimumValue="01/01/2010" Type="Date"></asp:RangeValidator>
+                       <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="aedob" ErrorMessage="*Invalid Date" Font-Size="Smaller" ForeColor="Red" MaximumValue="01/01/2020" MinimumValue="01/01/2000" Type="Date"></asp:RangeValidator>
                     </div>
                 </div>
             </div>
@@ -126,7 +164,7 @@
 
     <div id="div5" class="divTable" style="text-align: left; margin: auto; font-size: small; background-color: #ededed; font-family: Tahoma; border: solid 1px;width:70%;">
             <div class="divTableBody">
-                <div class="divTableRow" style="background-color: gray; color: white;">
+                <div class="divTableRow" style="background-color: #424a5d; color: white;">
                     <div class="divTableCell">&nbsp;</div>
                     <div class="divTableCell"><strong>Name</strong></div>
                     <div class="divTableCell"><strong>Date</strong></div>
@@ -166,18 +204,19 @@
     <div id="divtb" class="divTable" style="text-align: left; margin: auto; font-size: small; background-color: #EDEDED; font-family: Tahoma; border: solid 1px;">
         <div class="divTableBody">
 
-            <div class="divTableRow" style="background-color: gray; color: white;">
+            <div class="divTableRow" style="background-color: #424a5d; color: white;">
                 <div class="divTableCell"><strong>Serial</strong></div>
                 <div class="divTableCell"><strong>Description of<br /> Adverse Event</strong></div>
                 <div class="divTableCell"><strong>Start Date</strong></div>
-                <div class="divTableCell"><strong>Stop Date</strong></div>
                 <div class="divTableCell"><strong>Ongoing</strong></div>
+                <div class="divTableCell"><strong>Stop Date</strong></div>
                 <div class="divTableCell"><strong>Does it Meet<br />SAE# Definition</strong></div>
                 <div class="divTableCell"><strong>Intensity</strong></div>
                 <div class="divTableCell"><strong>Frequency</strong></div>
                 <div class="divTableCell"><strong>Action Taken</strong></div>
                 <div class="divTableCell"><strong>Outcome</strong></div>
                 <div class="divTableCell"><strong>Causality to<br /> Study Vaccine</strong></div>
+                <div class="divTableCell"></div>
             </div>
             <div id="div01" runat="server" clientidmode="Static" class="divTableRow" >
                 <div class="divTableCell">1.</div>
@@ -189,17 +228,17 @@
                     <cc1:MaskedEditExtender ID="Masked1" runat="server" Mask="99/99/9999" MaskType="Date" TargetControlID="aes1_b" />
                 </div>
                 <div class="divTableCell">
-                    <asp:TextBox ID="aes1_c" CssClass="txtboxx" runat="server" placeholder="dd/mm/yyyy" size="12" MaxLength="15" onkeypress="return OnlyNumeric(event)" onblur="isValidDate('aes1_c')" ClientIDMode="Static"></asp:TextBox>
-                    <cc1:MaskedEditExtender ID="MaskedEditExtender1" runat="server" Mask="99/99/9999" MaskType="Date" TargetControlID="aes1_c" />
-                </div>
+                    <asp:TextBox ID="aes1_d" CssClass="txtboxx" runat="server" placeholder="0 / 1" size="12" MaxLength="1" onkeypress="return OnlyNumeric(event)" onkeyup="ongoing('aes1_d'); input1('aes1_d')" ClientIDMode="Static"></asp:TextBox>
+                </div>               
                 <div class="divTableCell">
-                    <asp:TextBox ID="aes1_d" CssClass="txtboxx" runat="server" placeholder="0 / 1" size="12" MaxLength="1" onkeypress="return OnlyNumeric(event)" onkeyup="input1('aes1_d')" ClientIDMode="Static"></asp:TextBox>
+                    <asp:TextBox ID="aes1_c" class="stop" CssClass="txtboxx" runat="server" placeholder="dd/mm/yyyy" size="12" MaxLength="15" onkeypress="return OnlyNumeric(event)" onblur="isValidDate('aes1_c')" ClientIDMode="Static"></asp:TextBox>
+                    <cc1:MaskedEditExtender ID="MaskedEditExtender1" runat="server" Mask="99/99/9999" MaskType="Date" TargetControlID="aes1_c" />
                 </div>
                 <div class="divTableCell">
                     <asp:TextBox ID="aes1_e" CssClass="txtboxx" runat="server" placeholder="0 / 1" size="12" MaxLength="1" onkeypress="return OnlyNumeric(event)" onkeyup="input1('aes1_e')" ClientIDMode="Static"></asp:TextBox>
                 </div>
                 <div class="divTableCell">
-                    <asp:TextBox ID="aes1_f" CssClass="txtboxx" runat="server" placeholder=" 1 to 4" size="12" MaxLength="1" onkeypress="return OnlyNumeric(event)" onkeyup="input3('aes1_f')" ClientIDMode="Static"></asp:TextBox>
+                    <asp:TextBox ID="aes1_f" CssClass="txtboxx" runat="server" placeholder="1 to 4" size="12" MaxLength="1" onkeypress="return OnlyNumeric(event)" onkeyup="input3('aes1_f')" ClientIDMode="Static"></asp:TextBox>
                 </div>
                 <div class="divTableCell">
                     <asp:TextBox ID="aes1_g" CssClass="txtboxx" runat="server" placeholder="1/2/3" size="12" MaxLength="1" onkeypress="return OnlyNumeric(event)" onkeyup="input2('aes1_g')"  ClientIDMode="Static"></asp:TextBox>
@@ -214,10 +253,14 @@
                 </div>
                 <div class="divTableCell">
                     <asp:TextBox ID="aes1_j" CssClass="txtboxx" runat="server" placeholder="1 to 4" size="12" MaxLength="1" onkeypress="return OnlyNumeric(event)" onkeyup="input3('aes1_j')" ClientIDMode="Static"></asp:TextBox>
-                </div>
+                </div>                
+                <div class="divTableCell">
+                    <asp:Button runat="server" id="Button1"  OnClick="Button1_Click" Text="more" />
+                    <%--<button type="button" id="Button1" onclick="showmore('Button1')" OnClick="btnSubmit_Click">more</button>--%>
+                </div>  
             </div>
 
-            <div id="div2" runat="server" clientidmode="Static" class="divTableRow" >
+            <div id="div2" runat="server" clientidmode="Static" class="divTableRow" style="display:none" >
                 <div class="divTableCell">2.</div>
                 <div class="divTableCell">
                     <asp:TextBox ID="aes2_a" CssClass="txtboxx" runat="server" placeholder="" ClientIDMode="Static"></asp:TextBox>
@@ -227,11 +270,11 @@
                     <cc1:MaskedEditExtender ID="MaskedEditExtender3" runat="server" Mask="99/99/9999" MaskType="Date" TargetControlID="aes2_b" />
                 </div>
                 <div class="divTableCell">
+                    <asp:TextBox ID="aes2_d" CssClass="txtboxx" runat="server" placeholder="0 / 1" size="12" MaxLength="1" onkeypress="return OnlyNumeric(event)" onkeyup="ongoing('aes2_d'); input1('aes2_d')" ClientIDMode="Static"></asp:TextBox>
+                </div>                
+                <div class="divTableCell">
                     <asp:TextBox ID="aes2_c" CssClass="txtboxx" runat="server" placeholder="dd/mm/yyyy" size="12" MaxLength="15" onkeypress="return OnlyNumeric(event)" onblur="isValidDate('aes2_c')" ClientIDMode="Static"></asp:TextBox>
                     <cc1:MaskedEditExtender ID="MaskedEditExtender4" runat="server" Mask="99/99/9999" MaskType="Date" TargetControlID="aes2_c" />
-                </div>
-                <div class="divTableCell">
-                    <asp:TextBox ID="aes2_d" CssClass="txtboxx" runat="server" placeholder="0 / 1" size="12" MaxLength="1" onkeypress="return OnlyNumeric(event)" onkeyup="input1('aes2_d')" ClientIDMode="Static"></asp:TextBox>
                 </div>
                 <div class="divTableCell">
                     <asp:TextBox ID="aes2_e" CssClass="txtboxx" runat="server" placeholder="0 / 1" size="12" MaxLength="1" onkeypress="return OnlyNumeric(event)" onkeyup="input1('aes2_e')" ClientIDMode="Static"></asp:TextBox>
@@ -253,10 +296,13 @@
                 <div class="divTableCell">
                     <asp:TextBox ID="aes2_j" CssClass="txtboxx" runat="server" placeholder="1 to 4" size="12" MaxLength="1" onkeypress="return OnlyNumeric(event)" onkeyup="input3('aes2_j')" ClientIDMode="Static"></asp:TextBox>
                 </div>
+                <div class="divTableCell">
+                    <button type="button" id="Button2" onclick="showmore('Button2')">more</button>
+                </div>  
             </div>
 
 
-            <div id="div3" runat="server" clientidmode="Static" class="divTableRow" >
+            <div id="div3" runat="server" clientidmode="Static" class="divTableRow" style="display:none">
                 <div class="divTableCell">3.</div>
                 <div class="divTableCell">
                     <asp:TextBox ID="aes3_a" CssClass="txtboxx" runat="server" placeholder="" ClientIDMode="Static"></asp:TextBox>
@@ -264,22 +310,22 @@
                 <div class="divTableCell">
                     <asp:TextBox ID="aes3_b" CssClass="txtboxx" runat="server" placeholder="dd/mm/yyyy" size="12" MaxLength="15" onkeypress="return OnlyNumeric(event)" onblur="isValidDate('aes3_b')" ClientIDMode="Static"></asp:TextBox>
                     <cc1:MaskedEditExtender ID="MaskedEditExtender5" runat="server" Mask="99/99/9999" MaskType="Date" TargetControlID="aes3_b" />
+                </div>                
+                <div class="divTableCell">
+                    <asp:TextBox ID="aes3_d" CssClass="txtboxx" runat="server" placeholder="0 / 1" size="12" MaxLength="1" onkeypress="return OnlyNumeric(event)" onkeyup="ongoing('aes3_d'); input1('aes3_d')" ClientIDMode="Static"></asp:TextBox>
                 </div>
                 <div class="divTableCell">
                     <asp:TextBox ID="aes3_c" CssClass="txtboxx" runat="server" placeholder="dd/mm/yyyy" size="12" MaxLength="15" onkeypress="return OnlyNumeric(event)" onblur="isValidDate('aes3_c')" ClientIDMode="Static"></asp:TextBox>
                     <cc1:MaskedEditExtender ID="MaskedEditExtender6" runat="server" Mask="99/99/9999" MaskType="Date" TargetControlID="aes3_c" />
                 </div>
                 <div class="divTableCell">
-                    <asp:TextBox ID="aes3_d" CssClass="txtboxx" runat="server" placeholder="0 / 1" size="12" MaxLength="1" onkeypress="return OnlyNumeric(event)" onkeyup="input1('aes3_d')" ClientIDMode="Static"></asp:TextBox>
-                </div>
-                <div class="divTableCell">
                     <asp:TextBox ID="aes3_e" CssClass="txtboxx" runat="server" placeholder="0 / 1" size="12" MaxLength="1" onkeypress="return OnlyNumeric(event)" onkeyup="input1('aes3_e')" ClientIDMode="Static"></asp:TextBox>
                 </div>
                 <div class="divTableCell">
-                    <asp:TextBox ID="aes3_f" CssClass="txtboxx" runat="server" placeholder=" 1 to 4" size="12" MaxLength="1" onkeypress="return OnlyNumeric(event)" onkeyup="input3('aes3_f')" ClientIDMode="Static"></asp:TextBox>
+                    <asp:TextBox ID="aes3_f" CssClass="txtboxx" runat="server" placeholder="1 to 4" size="12" MaxLength="1" onkeypress="return OnlyNumeric(event)" onkeyup="input3('aes3_f')" ClientIDMode="Static"></asp:TextBox>
                 </div>
                 <div class="divTableCell">
-                    <asp:TextBox ID="aes3_g" CssClass="txtboxx" runat="server" placeholder="1/2/3" size="12" MaxLength="1" onkeypress="return OnlyNumeric(event)" onkeyup="input2('aes3_g')"  ClientIDMode="Static"></asp:TextBox>
+                    <asp:TextBox ID="aes3_g" CssClass="txtboxx" runat="server" placeholder="1 / 2 / 3" size="12" MaxLength="1" onkeypress="return OnlyNumeric(event)" onkeyup="input2('aes3_g')"  ClientIDMode="Static"></asp:TextBox>
                 </div>
                 <div class="divTableCell">
                     <asp:TextBox ID="aes3_h" CssClass="txtboxx" runat="server" placeholder="0 to 3" size="12" MaxLength="1" onkeypress="return OnlyNumeric(event)" onkeyup="input2('aes3_h');comment1('aes3_h')" ClientIDMode="Static"></asp:TextBox>
@@ -292,10 +338,13 @@
                 <div class="divTableCell">
                     <asp:TextBox ID="aes3_j" CssClass="txtboxx" runat="server" placeholder="1 to 4" size="12" MaxLength="1" onkeypress="return OnlyNumeric(event)" onkeyup="input3('aes3_j')" ClientIDMode="Static"></asp:TextBox>
                 </div>
+                <div class="divTableCell">
+                    <button type="button" id="Button3" onclick="showmore('Button3')">more</button>
+                </div>  
             </div>
 
 
-            <div id="div4" runat="server" clientidmode="Static" class="divTableRow" >
+            <div id="div4" runat="server" clientidmode="Static" class="divTableRow" style="display:none" >
                 <div class="divTableCell">4.</div>
                 <div class="divTableCell">
                     <asp:TextBox ID="aes4_a" CssClass="txtboxx" runat="server" placeholder="" ClientIDMode="Static"></asp:TextBox>
@@ -305,11 +354,11 @@
                     <cc1:MaskedEditExtender ID="MaskedEditExtender7" runat="server" Mask="99/99/9999" MaskType="Date" TargetControlID="aes4_b" />
                 </div>
                 <div class="divTableCell">
+                    <asp:TextBox ID="aes4_d" CssClass="txtboxx" runat="server" placeholder="0 / 1" size="12" MaxLength="1" onkeypress="return OnlyNumeric(event)" onkeyup="ongoing('aes4_d'); input1('aes4_d')" ClientIDMode="Static"></asp:TextBox>
+                </div>                
+                <div class="divTableCell">
                     <asp:TextBox ID="aes4_c" CssClass="txtboxx" runat="server" placeholder="dd/mm/yyyy" size="12" MaxLength="15" onkeypress="return OnlyNumeric(event)" onblur="isValidDate('aes4_c')" ClientIDMode="Static"></asp:TextBox>
                     <cc1:MaskedEditExtender ID="MaskedEditExtender8" runat="server" Mask="99/99/9999" MaskType="Date" TargetControlID="aes4_c" />
-                </div>
-                <div class="divTableCell">
-                    <asp:TextBox ID="aes4_d" CssClass="txtboxx" runat="server" placeholder="0 / 1" size="12" MaxLength="1" onkeypress="return OnlyNumeric(event)" onkeyup="input1('aes4_d')" ClientIDMode="Static"></asp:TextBox>
                 </div>
                 <div class="divTableCell">
                     <asp:TextBox ID="aes4_e" CssClass="txtboxx" runat="server" placeholder="0 / 1" size="12" MaxLength="1" onkeypress="return OnlyNumeric(event)" onkeyup="input1('aes4_e')" ClientIDMode="Static"></asp:TextBox>
@@ -330,7 +379,7 @@
                 </div>
                 <div class="divTableCell">
                     <asp:TextBox ID="aes4_j" CssClass="txtboxx" runat="server" placeholder="1 to 4" size="12" MaxLength="1" onkeypress="return OnlyNumeric(event)" onkeyup="input3('aes4_j')" ClientIDMode="Static"></asp:TextBox>
-                </div>
+                </div> 
             </div>
 
 
@@ -340,7 +389,7 @@
     <br />
 
     <asp:Button ID="btnSubmit" runat="server" class="btn btn-theme btn-block" OnClick="btnSubmit_Click" OnClientClick="return validations();" Text="Submit" Style="padding: 8px;width:20%; margin:auto 40%" /><br />
-            
+  </div>          
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
    

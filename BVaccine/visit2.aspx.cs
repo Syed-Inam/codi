@@ -15,6 +15,7 @@ namespace BVaccine
         string constr2 = ConfigurationManager.ConnectionStrings["LocalMySql2"].ConnectionString;
         string constr1 = ConfigurationManager.ConnectionStrings["Local"].ConnectionString;
         DateTime expdt = new DateTime();
+        string childname;
         string rand;
 
         MySqlDataReader dreader;
@@ -29,7 +30,7 @@ namespace BVaccine
             //RangeValidator1.MinimumValue = DateTime.Now.ToString("dd/MM/yyyy");
             RangeValidator2.MaximumValue = DateTime.Now.ToString("dd-MM-yyyy");
             RangeValidator3.MaximumValue = DateTime.Now.ToString("dd-MM-yyyy");
-            RangeValidator4.MinimumValue = DateTime.Now.ToString("dd-MM-yyyy");
+            //RangeValidator4.MinimumValue = DateTime.Now.ToString("dd-MM-yyyy");
             Session["WebForm"] = "Forms";
             txtStudyID.Focus();
         }
@@ -56,7 +57,7 @@ namespace BVaccine
                         {
                             formPanel.Visible = true;
                             btnchk.Visible = false;
-                            txtq1dt.Text = expdt.ToShortDateString();
+                            txtq1dt.Text = expdt.ToString("dd-MM-yyyy");
                             txtStudyID.Attributes.Add("readonly", "readonly");
                             txtq1dt.Attributes.Add("readonly", "readonly");
                             rdobtn.Attributes.Add("readonly", "readonly");
@@ -103,6 +104,7 @@ namespace BVaccine
             dreader = cmd.ExecuteReader();
             if (dreader.Read())
             {
+                childname = Convert.ToString(dreader["childname"]);
                 expdt = Convert.ToDateTime(dreader["nextapp"]);
                 rand = Convert.ToString(dreader["rn02"]);
                 con.Close();
@@ -117,7 +119,7 @@ namespace BVaccine
         {
             MySqlConnection conn = new MySqlConnection(constr2);
             conn.Open();
-            MySqlCommand cmd = new MySqlCommand("select * from visit2 where studyid='" + txtStudyID.Text + "' and dssid='" + txtDSSID.Text + "'", conn);
+            MySqlCommand cmd = new MySqlCommand("select * from formsv2 where studyid='" + txtStudyID.Text + "' and dssid='" + txtDSSID.Text + "'", conn);
             dreader = cmd.ExecuteReader();
             if (dreader.Read())
             {
@@ -154,7 +156,9 @@ namespace BVaccine
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            string visit = "v2";
+            string visit = "V2";
+            string user = Convert.ToString(Session["User"]) + "@web";
+
             string appdt = txtnxtdt.Text + " " + txtnxttm.Text;
             string q9 = Q9.SelectedItem != null ? Q9.SelectedItem.Value : string.Empty;
             string q11 = Q11.SelectedItem != null ? Q11.SelectedItem.Value : string.Empty;
@@ -261,14 +265,18 @@ namespace BVaccine
                 {
                     MySqlConnection con = new MySqlConnection(constr2);
                     con.Open();
-                    //MySqlCommand cmd = new MySqlCommand("insert into visit2(studyid,dssid, formtype, csv01, csv02,rn02, hb01, hb02, hb03,hb04, hb05, hb06, hb0688x)" +
-                    //    "values ('" + txtStudyID.Text.ToUpper() + "','" + txtDSSID.Text.ToUpper() + "','" + visit + "','" + txtq1dt.Text + "','" + txtq2dt.Text + "','" + rdobtn.SelectedItem.Value + "','" + Q4.SelectedItem.Value + "', " +
-                    //    "'" + Q5.SelectedItem.Value + "','" + Q6.SelectedItem.Value + "','" + Q7.SelectedItem.Value + "','" + Q8.SelectedItem.Value + "','" + q9 + "','" + txtq9x.Text.ToUpper() + "')", con);
-                    //    "'" + Q11.SelectedItem.Value + "','" + txtq12dt.Text + "','" + txtq13t.Text + "','" + Q14.SelectedItem.Value + "','" + Q15.SelectedItem.Value + "','" + txtq16.Text.ToUpper() + "', '" + appdt + "', '" + DateTime.Now.ToString("dd/MM/yyyy hh:mm tt") + "')", con);
-                    MySqlCommand cmd = new MySqlCommand("insert into visit2(studyid,dssid, formtype, csv01, csv02, hb01, hb02, hb03,hb04, hb05, hb06, hb0688x, bl01, bl02, bl03, bl04, bl05, bl06, bl07, nextapp, formdate)" +
-                        "values ('" + txtStudyID.Text.ToUpper() + "','" + txtDSSID.Text.ToUpper() + "','" + visit + "','" + txtq1dt.Text + "','" + txtq2dt.Text + "','" + Q4.SelectedItem.Value + "', " +
-                        "'" + Q5.SelectedItem.Value + "','" + Q6.SelectedItem.Value + "','" + Q7.SelectedItem.Value + "','" + Q8.SelectedItem.Value + "','" + q9 + "','" + txtq9x.Text.ToUpper() + "','" + Q10.SelectedItem.Value + "', " +
-                        "'" + q11 + "','" + txtq12dt.Text + "','" + txtq13t.Text + "','" + q14 + "','" + q15 + "','" + txtq16.Text + "', '" + appdt + "', '" + DateTime.Now.ToString("dd/MM/yyyy hh:mm tt") + "')", con);
+                    MySqlCommand cmd = new MySqlCommand("insert into formsv2(studyid,dssid, childname, formtype, csv01, csv02, hb01, hb02, hb03,hb04, hb05, hb06, hb0688x, bl01, bl02, bl03, bl04, bl05, bl06, bl07, nextapp, user, formdate)" +
+                        "values ('" + txtStudyID.Text.ToUpper() + "','" + txtDSSID.Text.ToUpper() + "','" + childname + "','" + visit + "','" + txtq1dt.Text + "','" + txtq2dt.Text + "','" + Q4.SelectedItem.Value + "', " +
+                        "'" + Q5.SelectedItem.Value + "','" + Q6.SelectedItem.Value + "','" + Q7.SelectedItem.Value + "','" + Q8.SelectedItem.Value + "','" + q9 + "','" + txtq9x.Text + "','" + Q10.SelectedItem.Value + "', " +
+                        "'" + q11 + "','" + txtq12dt.Text + "','" + txtq13t.Text + "','" + q14 + "','" + q15 + "','" + txtq16.Text + "', '" + appdt + "','" + user + "','" + DateTime.Now.ToString("dd-MM-yyyy hh:mm tt") + "' )", con);
+
+
+
+                    //    "'" + Q11.SelectedItem.Value + "','" + txtq12dt.Text + "','" + txtq13t.Text + "','" + Q14.SelectedItem.Value + "','" + Q15.SelectedItem.Value + "','" + txtq16.Text.ToUpper() + "'", con);
+                    //MySqlCommand cmd = new MySqlCommand("insert into formsv2(studyid,dssid, formtype, csv01, csv02, hb01, hb02, hb03,hb04, hb05, hb06, hb0688x, bl01, bl02, bl03, bl04, bl05, bl06, bl07, nextapp, user, formdate)" +
+                    //    "values ('" + txtStudyID.Text.ToUpper() + "','" + txtDSSID.Text.ToUpper() + "','" + visit + "','" + txtq1dt.Text + "','" + txtq2dt.Text + "','" + Q4.SelectedItem.Value + "', " +
+                    //    "'" + Q5.SelectedItem.Value + "','" + Q6.SelectedItem.Value + "','" + Q7.SelectedItem.Value + "','" + Q8.SelectedItem.Value + "','" + q9 + "','" + txtq9x.Text.ToUpper() + "','" + Q10.SelectedItem.Value + "', " +
+                    //    "'" + q11 + "','" + txtq12dt.Text + "','" + txtq13t.Text + "','" + q14 + "','" + q15 + "','" + txtq16.Text + "', '" + appdt + "','" + user + "','" + DateTime.Now.ToString("dd/MM/yyyy hh:mm tt") + "')", con);
                     cmd.ExecuteNonQuery();
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "alerts", "javascript:alert('Submitted Successfully!');window.location.href='visit2.aspx';", true);
                     con.Close();

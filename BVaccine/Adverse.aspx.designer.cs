@@ -202,6 +202,15 @@ namespace BVaccine {
         protected global::AjaxControlToolkit.MaskedEditExtender Masked1;
         
         /// <summary>
+        /// aes1_d control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox aes1_d;
+        
+        /// <summary>
         /// aes1_c control.
         /// </summary>
         /// <remarks>
@@ -218,15 +227,6 @@ namespace BVaccine {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.MaskedEditExtender MaskedEditExtender1;
-        
-        /// <summary>
-        /// aes1_d control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox aes1_d;
         
         /// <summary>
         /// aes1_e control.
@@ -301,6 +301,15 @@ namespace BVaccine {
         protected global::System.Web.UI.WebControls.TextBox aes1_j;
         
         /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
+        
+        /// <summary>
         /// div2 control.
         /// </summary>
         /// <remarks>
@@ -337,6 +346,15 @@ namespace BVaccine {
         protected global::AjaxControlToolkit.MaskedEditExtender MaskedEditExtender3;
         
         /// <summary>
+        /// aes2_d control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox aes2_d;
+        
+        /// <summary>
         /// aes2_c control.
         /// </summary>
         /// <remarks>
@@ -353,15 +371,6 @@ namespace BVaccine {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.MaskedEditExtender MaskedEditExtender4;
-        
-        /// <summary>
-        /// aes2_d control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox aes2_d;
         
         /// <summary>
         /// aes2_e control.
@@ -472,6 +481,15 @@ namespace BVaccine {
         protected global::AjaxControlToolkit.MaskedEditExtender MaskedEditExtender5;
         
         /// <summary>
+        /// aes3_d control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox aes3_d;
+        
+        /// <summary>
         /// aes3_c control.
         /// </summary>
         /// <remarks>
@@ -488,15 +506,6 @@ namespace BVaccine {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.MaskedEditExtender MaskedEditExtender6;
-        
-        /// <summary>
-        /// aes3_d control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox aes3_d;
         
         /// <summary>
         /// aes3_e control.
@@ -607,6 +616,15 @@ namespace BVaccine {
         protected global::AjaxControlToolkit.MaskedEditExtender MaskedEditExtender7;
         
         /// <summary>
+        /// aes4_d control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox aes4_d;
+        
+        /// <summary>
         /// aes4_c control.
         /// </summary>
         /// <remarks>
@@ -623,15 +641,6 @@ namespace BVaccine {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.MaskedEditExtender MaskedEditExtender8;
-        
-        /// <summary>
-        /// aes4_d control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox aes4_d;
         
         /// <summary>
         /// aes4_e control.

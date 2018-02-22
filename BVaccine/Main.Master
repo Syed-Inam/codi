@@ -177,7 +177,7 @@
                                     <li><a href="#">Add New User</a></li>
                                     <li><a href="#">Change Password</a></li>
                                     <li class="divider"></li>
-                                    <li><a href="#">Logout</a></li>
+                                    <li><a href="login.aspx">Logout</a></li>
                                 </ul>
                             </li>
 

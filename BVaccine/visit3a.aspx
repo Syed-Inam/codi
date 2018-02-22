@@ -95,8 +95,10 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
     <asp:ScriptManager ID="ScriptManger1" runat="Server"></asp:ScriptManager>
+
+    <div style="text-align: center; margin-top: 30px;">
+        <h3 style="text-align: center; margin-top: 40px"><b>Comparison of duration of immunity following IPV and fIPV: <br />A community based randomized Controlled trial in Pakistan  </b></h3>
 
     <div style="text-align: center; margin-top: 50px; margin-bottom: 50px">
         <h2><b>IPV and fIPV</b></h2>
@@ -201,7 +203,7 @@
                         <td colspan="3" class="tdStyle tdText">
                             <asp:RadioButtonList runat="server" ID="Q8" onclick="GetSelectedItem('Q8')" ClientIDMode="Static">
                                 <asp:ListItem Text="NO" Value="1"></asp:ListItem>
-                                <asp:ListItem Text="PARTAIL BREASTFEEDING" Value="2"></asp:ListItem>
+                                <asp:ListItem Text="PARTIAL BREASTFEEDING" Value="2"></asp:ListItem>
                                 <asp:ListItem Text="EXCLUSIVE BREASTFEEDING" Value="3"></asp:ListItem>
                             </asp:RadioButtonList>                            
                         </td>
@@ -311,5 +313,5 @@
 
         </div>
     </div>
-
+  </div>
 </asp:Content>

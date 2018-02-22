@@ -26,14 +26,23 @@
         }
 
         function isCheck(id) {
-            var chkbx = document.getElementById(id);
-            if (chkbx == "CheckBox1") {
-                if (document.getElementById(id).checked == true)
+            if (id == CheckBox1) {
+                if (id.checked) {
                     document.getElementById("txtbxdt1").disabled = false;
-                else
+                }
+                else {
                     document.getElementById("txtbxdt1").disabled = true;
+                }
             }
             
+            if (id == CheckBox2) {
+                if (id.checked) {
+                    document.getElementById("txtbxdt2").disabled = false;
+                }
+                else {
+                    document.getElementById("txtbxdt2").disabled = true;
+                }
+            }
         }
 
         function showmore(id, btn) {
@@ -272,7 +281,7 @@
                         </div>
                         <div class="divTableRow">
                             <div class="divTableCell">
-                                <asp:CheckBox ID="CheckBox1" runat="server" Text="Sponsor" ClientIDMode="Static" />
+                                <asp:CheckBox ID="CheckBox1" runat="server" Text="Sponsor" ClientIDMode="Static" onclick="isCheck(CheckBox1)" />
                             </div>
                             <div class="divTableCell">
                                 <asp:TextBox ID="txtbxdt1" CssClass="txtboxx" ClientIDMode="Static" runat="server" placeholder="dd/mm/yyyy" Format="dd/mm/yyyy" Enabled="false" ></asp:TextBox>
@@ -282,7 +291,7 @@
                         </div>
                         <div class="divTableRow">
                             <div class="divTableCell">
-                                <asp:CheckBox ID="CheckBox2" runat="server" Text="IRB" ClientIDMode="Static"/>
+                                <asp:CheckBox ID="CheckBox2" runat="server" Text="IRB" ClientIDMode="Static" onclick="isCheck('CheckBox2')" />
                             </div>
                             <div class="divTableCell">
                                 <asp:TextBox ID="txtbxdt2" CssClass="txtboxx" ClientIDMode="Static" runat="server" placeholder="dd/mm/yyyy" Format="dd/mm/yyyy" Enabled="false"></asp:TextBox>
